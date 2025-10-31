@@ -1,0 +1,8 @@
+{
+  "name": "pr-automation",
+  "description": "Automate PR workflow approvals and ok-to-test comments",
+  "version": "0.0.1",
+  "author": {
+    "name": "stbenjam"
+  }
+}

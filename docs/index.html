@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{MARKETPLACE_TITLE}}</title>
+    <title>claude-nine - Claude Code Plugins</title>
     <style>
         :root {
-            --primary: {{PRIMARY_COLOR}};
-            --primary-dark: {{PRIMARY_DARK}};
-            --secondary: {{SECONDARY_COLOR}};
+            --primary: #6a4c93;
+            --primary-dark: #4a3369;
+            --secondary: #9d84b7;
             --bg-dark: #0f0f0f;
             --bg-card: #1a1a1a;
             --bg-code: #2d2d2d;
@@ -748,8 +748,8 @@
         <div class="navbar-content">
             <div class="navbar-brand">
                 <div class="navbar-title">
-                    <h1>{{MARKETPLACE_NAME}}</h1>
-                    <p class="subtitle">{{MARKETPLACE_SUBTITLE}}</p>
+                    <h1>claude-nine</h1>
+                    <p class="subtitle">Claude Code Plugins by stbenjam</p>
                 </div>
                 <div class="navbar-stats">
                     <div class="stat">
@@ -776,7 +776,7 @@
             </div>
             <div class="navbar-links">
                 <a href="#install" class="nav-link primary">How to Install</a>
-                <a href="https://github.com/{{GITHUB_REPO}}" class="nav-link" target="_blank">GitHub</a>
+                <a href="https://github.com/stbenjam/claude-nine" class="nav-link" target="_blank">GitHub</a>
                 <a href="https://docs.claude.com/en/docs/claude-code/overview" class="nav-link" target="_blank">Docs</a>
             </div>
         </div>
@@ -801,7 +801,7 @@
         </div>
 
         <footer>
-            <p>Built with <a href="https://github.com/stbenjam/claude-marketplace-template" style="color: var(--primary);">Claude Marketplace Template</a> | <a href="https://github.com/{{GITHUB_REPO}}" style="color: var(--primary);">{{GITHUB_REPO}}</a></p>
+            <p>Built with <a href="https://github.com/stbenjam/claude-marketplace-template" style="color: var(--primary);">Claude Marketplace Template</a> | <a href="https://github.com/stbenjam/claude-nine" style="color: var(--primary);">stbenjam/claude-nine</a></p>
         </footer>
     </div>
 
@@ -956,7 +956,7 @@
                         <button class="close-button" onclick="closeModal()">&times;</button>
                     </div>
                     ${plugin.has_readme ? `
-                    <a href="https://github.com/{{GITHUB_REPO}}/tree/main/plugins/${plugin.name}/README.md"
+                    <a href="https://github.com/stbenjam/claude-nine/tree/main/plugins/${plugin.name}/README.md"
                        target="_blank"
                        class="readme-button">
                         <svg width="14" height="14" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -974,7 +974,7 @@
                 <div style="margin-bottom: 1.5rem;">
                     <div style="font-size: 0.875rem; color: var(--text-muted); margin-bottom: 0.5rem;">Install this plugin:</div>
                     <div style="position: relative;">
-                        <div class="code-block" style="padding-right: 5rem;">/plugin install ${plugin.name}@{{MARKETPLACE_NAME}}</div>
+                        <div class="code-block" style="padding-right: 5rem;">/plugin install ${plugin.name}@claude-nine</div>
                         <button class="copy-button" onclick="copyInstallCommand('${plugin.name}', event)" title="Copy to clipboard">
                             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M5.75 4.75H10.25V1.75H5.75V4.75ZM5.75 4.75H2.75V14.25H10.25V11.25M5.75 4.75V7.75H13.25V14.25H10.25V11.25M10.25 11.25H13.25V7.75H5.75V4.75" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -1207,7 +1207,7 @@
 
         // Copy install command to clipboard
         function copyInstallCommand(pluginName, event) {
-            const command = `/plugin install ${pluginName}@{{MARKETPLACE_NAME}}`;
+            const command = `/plugin install ${pluginName}@claude-nine`;
             copyToClipboard(command, event);
         }
 
@@ -1264,12 +1264,12 @@
         function showInstallModal() {
             const content = `
                 <p style="margin-bottom: 1.5rem; color: var(--text-secondary);">
-                    Install plugins from the {{MARKETPLACE_NAME}} marketplace using Claude Code:
+                    Install plugins from the claude-nine marketplace using Claude Code:
                 </p>
 
                 <div style="position: relative; margin-bottom: 1.5rem;">
-                    <div class="code-block" style="padding-right: 5rem;">/plugin marketplace add {{GITHUB_REPO}}</div>
-                    <button class="copy-button" onclick="copyToClipboard('/plugin marketplace add {{GITHUB_REPO}}', event)" title="Copy to clipboard">
+                    <div class="code-block" style="padding-right: 5rem;">/plugin marketplace add stbenjam/claude-nine</div>
+                    <button class="copy-button" onclick="copyToClipboard('/plugin marketplace add stbenjam/claude-nine', event)" title="Copy to clipboard">
                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M5.75 4.75H10.25V1.75H5.75V4.75ZM5.75 4.75H2.75V14.25H10.25V11.25M5.75 4.75V7.75H13.25V14.25H10.25V11.25M10.25 11.25H13.25V7.75H5.75V4.75" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
@@ -1281,7 +1281,7 @@
                     Install a specific plugin:
                 </p>
 
-                <div class="code-block">/plugin install example-plugin@{{MARKETPLACE_NAME}}</div>
+                <div class="code-block">/plugin install example-plugin@claude-nine</div>
 
                 <p style="margin: 1.5rem 0 1rem; color: var(--text-secondary);">
                     Use a command from the plugin:

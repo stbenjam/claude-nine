@@ -1,9 +1,3 @@
 {
-  "installedPlugins": [
-    {
-      "name": "example-plugin",
-      "source": "local",
-      "enabled": true
-    }
-  ]
+  "installedPlugins": []
 }

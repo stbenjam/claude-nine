@@ -1,13 +1,13 @@
 {
-  "name": "{{MARKETPLACE_NAME}}",
+  "name": "claude-nine",
   "owner": {
-    "name": "{{OWNER_NAME}}"
+    "name": "stbenjam"
   },
   "plugins": [
     {
-      "name": "example-plugin",
-      "source": "./plugins/example-plugin",
-      "description": "Example plugin demonstrating command structure"
+      "name": "pr-automation",
+      "source": "./plugins/pr-automation",
+      "description": "Automate pull request workflows"
     }
   ]
 }
