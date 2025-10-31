@@ -1,0 +1,11 @@
+{
+  "template_version": "1.0.0",
+  "marketplace_name": "{{MARKETPLACE_NAME}}",
+  "owner_name": "{{OWNER_NAME}}",
+  "github_repo": "{{GITHUB_REPO}}",
+  "color_scheme": {
+    "primary": "{{PRIMARY_COLOR}}",
+    "primary_dark": "{{PRIMARY_DARK}}",
+    "secondary": "{{SECONDARY_COLOR}}"
+  }
+}

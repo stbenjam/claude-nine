@@ -1,0 +1,8 @@
+{
+  "name": "example-plugin",
+  "description": "Example plugin demonstrating command structure",
+  "version": "0.0.1",
+  "author": {
+    "name": "{{OWNER_NAME}}"
+  }
+}

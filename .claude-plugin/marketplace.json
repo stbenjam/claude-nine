@@ -1,0 +1,13 @@
+{
+  "name": "{{MARKETPLACE_NAME}}",
+  "owner": {
+    "name": "{{OWNER_NAME}}"
+  },
+  "plugins": [
+    {
+      "name": "example-plugin",
+      "source": "./plugins/example-plugin",
+      "description": "Example plugin demonstrating command structure"
+    }
+  ]
+}

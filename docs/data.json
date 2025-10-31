@@ -1,0 +1,27 @@
+{
+  "name": "{{MARKETPLACE_NAME}}",
+  "owner": "{{OWNER_NAME}}",
+  "plugins": [
+    {
+      "name": "example-plugin",
+      "description": "Example plugin demonstrating command structure",
+      "version": "0.0.1",
+      "commands": [
+        {
+          "name": "hello",
+          "description": "Say hello to someone",
+          "synopsis": "/example-plugin:hello [name]",
+          "argument_hint": "[name]"
+        }
+      ],
+      "skills": [
+        {
+          "name": "Example Skill",
+          "id": "example-skill",
+          "description": "Demonstrates how to create a task-specific skill for complex operations"
+        }
+      ],
+      "has_readme": true
+    }
+  ]
+}
