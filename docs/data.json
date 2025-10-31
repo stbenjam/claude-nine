@@ -43,6 +43,24 @@
       "agents": [],
       "has_readme": true,
       "has_mcp": false
+    },
+    {
+      "name": "potato",
+      "description": "TODO: Add description",
+      "version": "0.0.1",
+      "commands": [
+        {
+          "name": "example",
+          "description": "Example command",
+          "synopsis": "/potato:example",
+          "argument_hint": ""
+        }
+      ],
+      "skills": [],
+      "hooks": [],
+      "agents": [],
+      "has_readme": true,
+      "has_mcp": false
     }
   ]
 }

@@ -13,7 +13,11 @@
       "name": "git",
       "source": "./plugins/git",
       "description": "Git workflows"
+    },
+    {
+      "name": "potato",
+      "source": "./plugins/potato",
+      "description": "TODO: Add description"
     }
-
   ]
 }

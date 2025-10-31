@@ -54,7 +54,16 @@ new-plugin: ## Create a new plugin (usage: make new-plugin NAME=my-plugin)
 	@echo '{\n  "name": "$(NAME)",\n  "description": "TODO: Add description",\n  "version": "0.0.1",\n  "author": {\n    "name": "TODO: Add author"\n  }\n}' > plugins/$(NAME)/.claude-plugin/plugin.json
 	@echo '---\ndescription: Example command\n---\n\n## Name\n$(NAME):example\n\n## Synopsis\n```\n/$(NAME):example\n```\n\n## Description\nTODO: Add description\n\n## Implementation\n1. TODO: Add implementation steps\n\n## Return Value\nTODO: Describe output' > plugins/$(NAME)/commands/example.md
 	@echo "# $(NAME)\n\nTODO: Add plugin description" > plugins/$(NAME)/README.md
+	@echo "Adding plugin to marketplace.json..."
+	@python3 -c "import json; \
+		f = open('.claude-plugin/marketplace.json', 'r'); \
+		data = json.load(f); \
+		f.close(); \
+		data['plugins'].append({'name': '$(NAME)', 'source': './plugins/$(NAME)', 'description': 'TODO: Add description'}); \
+		f = open('.claude-plugin/marketplace.json', 'w'); \
+		json.dump(data, f, indent=2); \
+		f.close()"
 	@echo "✓ Created plugin: $(NAME)"
-	@echo "  Don't forget to add it to .claude-plugin/marketplace.json!"
+	@echo "✓ Added to marketplace.json"
 
 .DEFAULT_GOAL := help
