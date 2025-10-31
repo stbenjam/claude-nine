@@ -8,6 +8,12 @@
       "name": "pr-automation",
       "source": "./plugins/pr-automation",
       "description": "Automate pull request workflows"
+    },
+    {
+      "name": "git",
+      "source": "./plugins/git",
+      "description": "Git workflows"
     }
+
   ]
 }

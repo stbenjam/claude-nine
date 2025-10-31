@@ -1,5 +1,48 @@
 {
   "name": "claude-nine",
   "owner": "stbenjam",
-  "plugins": []
+  "plugins": [
+    {
+      "name": "pr-automation",
+      "description": "Automate pull request workflows",
+      "version": "0.0.1",
+      "commands": [
+        {
+          "name": "approve-workflows",
+          "description": "Approve pending GitHub Actions workflows and add /ok-to-test comments to PRs",
+          "synopsis": "/pr-automation:approve-workflows <repo-owner/repo-name>",
+          "argument_hint": "<repo-owner/repo-name>"
+        }
+      ],
+      "skills": [
+        {
+          "name": "PR Automation - Approve Workflows",
+          "id": "approve-workflows",
+          "description": "Approve pending GitHub Actions workflows and add /ok-to-test comments to PRs that need testing"
+        }
+      ],
+      "hooks": [],
+      "agents": [],
+      "has_readme": true,
+      "has_mcp": false
+    },
+    {
+      "name": "git",
+      "description": "Git workflows",
+      "version": "0.0.1",
+      "commands": [
+        {
+          "name": "review-queue",
+          "description": "Generate a report of PRs needing reviews",
+          "synopsis": "/git:review-queue [org/repo]",
+          "argument_hint": "[org/repo]"
+        }
+      ],
+      "skills": [],
+      "hooks": [],
+      "agents": [],
+      "has_readme": true,
+      "has_mcp": false
+    }
+  ]
 }
