@@ -15,8 +15,8 @@
       "description": "Git workflows"
     },
     {
-      "name": "potato",
-      "source": "./plugins/potato",
+      "name": "books",
+      "source": "./plugins/books",
       "description": "TODO: Add description"
     }
   ]

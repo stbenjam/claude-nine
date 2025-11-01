@@ -1,3 +1,3 @@
-# potato
+# books
 
 TODO: Add plugin description

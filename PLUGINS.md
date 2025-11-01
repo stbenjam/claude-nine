@@ -2,9 +2,18 @@
 
 This document lists all available Claude Code plugins and their commands in the ai-helpers repository.
 
+- [Books](#books-plugin)
 - [Git](#git-plugin)
-- [Potato](#potato-plugin)
 - [Pr Automation](#pr-automation-plugin)
+
+### Books Plugin
+
+TODO: Add description
+
+**Commands:**
+- **`/books:next`** - Analyze my reading patterns and suggest what to read next from my TBR
+
+See [plugins/books/README.md](plugins/books/README.md) for detailed documentation.
 
 ### Git Plugin
 
@@ -14,15 +23,6 @@ Git workflow automation and utilities
 - **`/git:review-queue` `[org/repo]`** - Generate a report of PRs needing reviews
 
 See [plugins/git/README.md](plugins/git/README.md) for detailed documentation.
-
-### Potato Plugin
-
-TODO: Add description
-
-**Commands:**
-- **`/potato:example`** - Example command
-
-See [plugins/potato/README.md](plugins/potato/README.md) for detailed documentation.
 
 ### Pr Automation Plugin
 

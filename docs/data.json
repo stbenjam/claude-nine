@@ -45,18 +45,24 @@
       "has_mcp": false
     },
     {
-      "name": "potato",
+      "name": "books",
       "description": "TODO: Add description",
       "version": "0.0.1",
       "commands": [
         {
-          "name": "example",
-          "description": "Example command",
-          "synopsis": "/potato:example",
+          "name": "next",
+          "description": "Analyze my reading patterns and suggest what to read next from my TBR",
+          "synopsis": "",
           "argument_hint": ""
         }
       ],
-      "skills": [],
+      "skills": [
+        {
+          "name": "calibre",
+          "id": "calibre",
+          "description": "Search and query Calibre library databases. Use when the user asks about books, TBR (to-be-read), reading lists, Calibre library queries, book searches, or mentions Calibre. Also use for queries about book ratings, authors, reading status, or library statistics."
+        }
+      ],
       "hooks": [],
       "agents": [],
       "has_readme": true,
