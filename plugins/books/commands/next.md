@@ -10,10 +10,11 @@ Perform the following analysis using the Calibre skill:
 
 ### 1. Analyze Recent Reading Patterns
 
-Query the last 15 books marked as read (sorted by last_modified DESC):
+Query the last 15 books marked as read (sorted by *dateread DESC):
 - Calculate average page count of recent reads
 - Identify if the user has been reading mostly long books (>600 pages)
 - Look for series patterns in recent reads
+- Use the `*dateread` field to determine actual reading order
 
 ### 2. Check for Series Continuity
 
@@ -49,7 +50,7 @@ Structure your response as a structured report with these categories:
 
 ```
 # READING PATTERN SUMMARY
-- Books read in last 30 days: X
+- Books read in last 30 days: X (use #dateread:">=30daysago")
 - Average page count: Y pages
 - Notable patterns: [e.g., "Completed Mistborn Era 2 series"]
 
@@ -95,3 +96,4 @@ Top-rated unread books from your TBR:
 - Balance series continuity with reading fatigue and variety
 - Present data in a clean, scannable format
 - Each category should help answer a different need: momentum, novelty, rediscovery, fatigue, or quality
+- **IMPORTANT**: All queries should exclude archived books (`c4.value = 0 OR c4.value IS NULL`) from recommendations
