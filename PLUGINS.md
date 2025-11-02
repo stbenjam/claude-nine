@@ -12,6 +12,9 @@ TODO: Add description
 
 **Commands:**
 - **`/books:next`** - Analyze my reading patterns and suggest what to read next from my TBR
+- **`/books:random`** - Pick a random book from TBR or library
+- **`/books:stats`** - Show reading statistics (books per year/month, pages read, average rating, genre breakdown)
+- **`/books:vibes`** - Find similar books in your library based on genre, author, or themes
 
 See [plugins/books/README.md](plugins/books/README.md) for detailed documentation.
 

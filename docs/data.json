@@ -54,6 +54,24 @@
           "description": "Analyze my reading patterns and suggest what to read next from my TBR",
           "synopsis": "",
           "argument_hint": ""
+        },
+        {
+          "name": "random",
+          "description": "Pick a random book from TBR or library",
+          "synopsis": "",
+          "argument_hint": ""
+        },
+        {
+          "name": "stats",
+          "description": "Show reading statistics (books per year/month, pages read, average rating, genre breakdown)",
+          "synopsis": "",
+          "argument_hint": ""
+        },
+        {
+          "name": "vibes",
+          "description": "Find similar books in your library based on genre, author, or themes",
+          "synopsis": "",
+          "argument_hint": ""
         }
       ],
       "skills": [
