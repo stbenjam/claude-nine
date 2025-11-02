@@ -13,6 +13,10 @@ You are helping the user search and query their Calibre library using `calibredb
 
 **calibredb Location**: `/Applications/calibre.app/Contents/MacOS/calibredb`
 
+**Authentication**:
+- Username: `calibre`
+- Password: `calibre`
+
 **Note**: Using Calibre Content Server means no database locking issues - queries work even while Calibre GUI is running.
 
 ## Custom Fields
@@ -41,6 +45,8 @@ Always use this pattern:
 ```bash
 /Applications/calibre.app/Contents/MacOS/calibredb list \
   --with-library='http://killington.home.bitbin.de:8454/#' \
+  --username='calibre' \
+  --password='calibre' \
   --fields='field1,field2,*customfield' \
   --search='search query' \
   --for-machine | python3 -m json.tool
@@ -124,6 +130,8 @@ Get unread, non-archived books:
 ```bash
 /Applications/calibre.app/Contents/MacOS/calibredb list \
   --with-library='http://killington.home.bitbin.de:8454/#' \
+  --username='calibre' \
+  --password='calibre' \
   --fields='title,authors,series,series_index,*goodreads,*pages' \
   --search='#read:No and #archived:No' \
   --for-machine | python3 -m json.tool
@@ -134,6 +142,8 @@ Get unread, non-archived books:
 ```bash
 /Applications/calibre.app/Contents/MacOS/calibredb list \
   --with-library='http://killington.home.bitbin.de:8454/#' \
+  --username='calibre' \
+  --password='calibre' \
   --fields='title,authors,*goodreads,*pages,timestamp' \
   --search='#read:No and #archived:No' \
   --sort-by='timestamp' \
@@ -148,6 +158,8 @@ Use the `*dateread` field to see when books were actually finished:
 ```bash
 /Applications/calibre.app/Contents/MacOS/calibredb list \
   --with-library='http://killington.home.bitbin.de:8454/#' \
+  --username='calibre' \
+  --password='calibre' \
   --fields='title,authors,series,series_index,*goodreads,*pages,*dateread' \
   --search='#read:Yes' \
   --sort-by='*dateread' \
@@ -160,6 +172,8 @@ Use the `*dateread` field to see when books were actually finished:
 ```bash
 /Applications/calibre.app/Contents/MacOS/calibredb list \
   --with-library='http://killington.home.bitbin.de:8454/#' \
+  --username='calibre' \
+  --password='calibre' \
   --fields='title,authors,series,*goodreads,*pages' \
   --search='#read:No and #archived:No and #goodreads:">4"' \
   --sort-by='*goodreads' \
@@ -171,6 +185,8 @@ Use the `*dateread` field to see when books were actually finished:
 ```bash
 /Applications/calibre.app/Contents/MacOS/calibredb list \
   --with-library='http://killington.home.bitbin.de:8454/#' \
+  --username='calibre' \
+  --password='calibre' \
   --fields='title,authors,series,*read,*goodreads,*pages' \
   --search='authors:"Sanderson" and #archived:No' \
   --for-machine | python3 -m json.tool
@@ -181,6 +197,8 @@ Use the `*dateread` field to see when books were actually finished:
 ```bash
 /Applications/calibre.app/Contents/MacOS/calibredb list \
   --with-library='http://killington.home.bitbin.de:8454/#' \
+  --username='calibre' \
+  --password='calibre' \
   --fields='title,authors,*pages,*goodreads' \
   --search='#read:No and #archived:No and #pages:"<300"' \
   --sort-by='*goodreads' \
@@ -192,6 +210,8 @@ Use the `*dateread` field to see when books were actually finished:
 ```bash
 /Applications/calibre.app/Contents/MacOS/calibredb list \
   --with-library='http://killington.home.bitbin.de:8454/#' \
+  --username='calibre' \
+  --password='calibre' \
   --fields='title,authors,series,series_index,*goodreads,*pages,timestamp' \
   --search='series:"Between Earth and Sky" and #read:No and #archived:No' \
   --sort-by='series_index' \
@@ -204,6 +224,8 @@ Use the `*dateread` field to see when books were actually finished:
 # Books read in October 2024
 /Applications/calibre.app/Contents/MacOS/calibredb list \
   --with-library='http://killington.home.bitbin.de:8454/#' \
+  --username='calibre' \
+  --password='calibre' \
   --fields='title,authors,*dateread,*goodreads,*pages' \
   --search='#dateread:">=2024-10-01" and #dateread:"<2024-11-01"' \
   --sort-by='*dateread' \
@@ -212,6 +234,8 @@ Use the `*dateread` field to see when books were actually finished:
 # Books read this year
 /Applications/calibre.app/Contents/MacOS/calibredb list \
   --with-library='http://killington.home.bitbin.de:8454/#' \
+  --username='calibre' \
+  --password='calibre' \
   --fields='title,authors,*dateread,*goodreads' \
   --search='#dateread:">=2025-01-01"' \
   --sort-by='*dateread' \

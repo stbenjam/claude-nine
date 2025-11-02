@@ -46,7 +46,7 @@
     },
     {
       "name": "books",
-      "description": "TODO: Add description",
+      "description": "Reading related stuff",
       "version": "0.0.1",
       "commands": [
         {
