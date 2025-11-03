@@ -85,6 +85,11 @@
           "name": "calibre",
           "id": "calibre",
           "description": "Search and query Calibre library databases. Use when the user asks about books, TBR (to-be-read), reading lists, Calibre library queries, book searches, or mentions Calibre. Also use for queries about book ratings, authors, reading status, or library statistics."
+        },
+        {
+          "name": "find-incomplete-series",
+          "id": "find-incomplete-series",
+          "description": "Find incomplete series in your Calibre library and identify the next book to read in each series."
         }
       ],
       "hooks": [],

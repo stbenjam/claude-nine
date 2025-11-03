@@ -1,0 +1,110 @@
+---
+description: Analyze my reading patterns and suggest what to read next from my TBR
+---
+
+You are helping the user decide what to read next from their Goodreads TBR list.
+
+## Analysis Steps
+
+Use the `goodreads` skill to perform the following analysis:
+
+### 1. Analyze Recent Reading Patterns
+
+Query the last 15 books read (sorted by date_read DESC):
+- Calculate average page count of recent reads
+- Identify if the user has been reading mostly long books (>600 pages)
+- Look for series patterns in recent reads
+- Use the `date_read` field to determine actual reading order
+- Look at `my_rating` field to see what books the user liked
+
+### 2. Check for Series Continuity
+
+For each series found in recent reads:
+- Check if there are unread books in that series on the TBR
+- Prioritize the next book in sequence (series_index), especially if the previous book had a high rating
+- This is important for maintaining reading momentum!
+
+### 3. Consider Reading Fatigue
+
+Based on recent page counts:
+- If average recent reads > 600 pages: Suggest shorter books (< 300 pages)
+- If average recent reads < 400 pages: User might be ready for something longer
+- Look for highly-rated short books as "palate cleansers"
+
+### 4. Check Book Age in Library
+
+Query books by date_added:
+- Find recently added books (last 30 days) that are on TBR
+- Find old books (added >1 year ago) that may have been forgotten
+- Use `date_added` field to determine when book was added
+
+### 5. Filter by Quality
+
+Prioritize books with:
+- Goodreads rating >= 3.75 (if available)
+- Consider page count relative to recent reading patterns
+- Balance between series continuity and variety
+
+## Output Format
+
+Structure your response as a structured report with these categories:
+
+```
+# READING PATTERN SUMMARY
+- Books read in last 30 days: X
+- Average page count: Y pages
+- Notable patterns: [e.g., "Completed The Carls series"]
+
+# RECOMMENDATIONS BY CATEGORY
+
+## 📚 SERIES CONTINUITY
+Books that continue series you're currently reading:
+
+- **Book Title** by Author
+  Series: Series Name #X | Pages: XXX | Rating: X.X/5 | Added: [date/age]
+
+## 🆕 RECENTLY ADDED
+Books added to your TBR in the last 30 days:
+
+- **Book Title** by Author
+  Pages: XXX | Rating: X.X/5 | Added: [date]
+
+## 💎 FORGOTTEN GEMS
+Books on your TBR added over a year ago:
+
+- **Book Title** by Author
+  Pages: XXX | Rating: X.X/5 | Added: [date/years ago]
+
+## ⚡ QUICK READS
+Shorter books (< 300 pages) for reading fatigue:
+
+- **Book Title** by Author
+  Pages: XXX | Rating: X.X/5 | Added: [age]
+
+## 🌟 HIGHLY RATED
+Top-rated unread books from your TBR:
+
+- **Book Title** by Author
+  Pages: XXX | Rating: X.X/5 | Added: [age]
+```
+
+## Important Notes
+
+- Use `date_added` to determine when books were added to the library
+- Calculate age from date_added (e.g., "2 days ago", "3 months ago", "2 years ago")
+- Include 1-3 books per category (skip categories if no matches)
+- ALWAYS check for incomplete series from recent reads first
+- Balance series continuity with reading fatigue and variety
+- Present data in a clean, scannable format
+- Each category should help answer a different need: momentum, novelty, rediscovery, fatigue, or quality
+- Only include books from the TBR list (where exclusive_shelf contains "to-read")
+
+## Implementation
+
+Write a Python script using the goodreads_lib to:
+1. Get the last 15 read books
+2. Analyze patterns (page count, series, ratings)
+3. Query TBR for recommendations in each category
+4. Format and display results
+
+Use the Bash tool to run your Python script.

@@ -17,7 +17,12 @@
     {
       "name": "books",
       "source": "./plugins/books",
-      "description": "Reading related stuff"
+      "description": "Various commands to work with my Calibre instance (very specific to mine, do not reccomend using)"
+    },
+    {
+      "name": "goodreads",
+      "source": "./plugins/goodreads",
+      "description": "Various commands to work with a Goodreads export"
     }
   ]
 }
