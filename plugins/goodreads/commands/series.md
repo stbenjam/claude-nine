@@ -6,7 +6,7 @@ You are helping the user find incomplete series in their Goodreads library.
 
 ## Task
 
-Use the `goodreads` skill to find series where:
+Use the `analyze-goodreads-export` skill to find series where:
 - The user has read at least one book in the series
 - There are still unread books in the series
 - Display the next book to read in each series

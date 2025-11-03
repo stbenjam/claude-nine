@@ -9,7 +9,7 @@ You are helping the user find books similar to one they specify.
 When the user asks to find books with similar "vibes" or similar to a specific book:
 
 1. Ask them what book they want to find similar books to (if not already specified)
-2. Use the `goodreads` skill to search for that book in their library
+2. Use the `analyze-goodreads-export` skill to search for that book in their library
 3. Find similar books based on:
    - Same author
    - Books on the same custom shelves (genre indicators)

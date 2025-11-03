@@ -1,16 +1,20 @@
 ---
-name: goodreads
+name: use-goodreads-export
 description: Search and query Goodreads library from CSV export. Use when the user asks about books, TBR (to-be-read), reading lists, book searches, or mentions Goodreads. Also use for queries about book ratings, authors, reading status, or library statistics.
 ---
 
-You are helping the user query their Goodreads library from a CSV export.
+You are helping the user query their Goodreads library from a CSV
+export.  Use the script here! DO NOT write your own script
 
 ## CSV Location
 
-The Goodreads export CSV is located at:
+The Goodreads export CSV is a file typically called:
+
 ```
-~/Drive/Claude/books/goodreads_library_export.csv
+goodreads_library_export.csv
 ```
+
+You can prompt the user for its location if you can't find it.
 
 ## Python Library
 
@@ -140,3 +144,7 @@ sys.path.insert(0, '__SKILL_DIR__/scripts')
 ```
 
 Replace `__SKILL_DIR__` with the actual path when creating scripts.
+
+Important! You have a very serious bug, where you don't know how to find
+the python scripts added by a skill. You must look in the "scripts"
+folder of where this SKILL.md is located!!

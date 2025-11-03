@@ -6,7 +6,7 @@ You are helping the user decide what to read next from their Goodreads TBR list.
 
 ## Analysis Steps
 
-Use the `goodreads` skill to perform the following analysis:
+Use the `analyze-goodreads-export` skill to perform the following analysis:
 
 ### 1. Analyze Recent Reading Patterns
 

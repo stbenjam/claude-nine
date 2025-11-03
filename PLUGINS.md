@@ -4,6 +4,7 @@ This document lists all available Claude Code plugins and their commands in the 
 
 - [Books](#books-plugin)
 - [Git](#git-plugin)
+- [Goodreads](#goodreads-plugin)
 - [Pr Automation](#pr-automation-plugin)
 
 ### Books Plugin
@@ -27,6 +28,19 @@ Git workflow automation and utilities
 - **`/git:review-queue` `[org/repo]`** - Generate a report of PRs needing reviews
 
 See [plugins/git/README.md](plugins/git/README.md) for detailed documentation.
+
+### Goodreads Plugin
+
+TODO: Add description
+
+**Commands:**
+- **`/goodreads:next`** - Analyze my reading patterns and suggest what to read next from my TBR
+- **`/goodreads:random`** - Pick a random book from TBR or library
+- **`/goodreads:series`** - List unfinished series and the next book to read in each
+- **`/goodreads:stats`** - Show reading statistics (books per year/month, pages read, average rating, genre breakdown)
+- **`/goodreads:vibes`** - Find similar books in your library based on genre, author, or themes
+
+See [plugins/goodreads/README.md](plugins/goodreads/README.md) for detailed documentation.
 
 ### Pr Automation Plugin
 

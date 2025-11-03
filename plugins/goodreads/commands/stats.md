@@ -6,7 +6,7 @@ You are helping the user analyze their reading statistics from their Goodreads l
 
 ## Analysis to Perform
 
-Use the `goodreads` skill to gather and analyze the following statistics:
+Use the `analyze-goodreads-export` skill to gather and analyze the following statistics:
 
 ### 1. Reading Velocity
 

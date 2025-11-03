@@ -6,7 +6,7 @@ You are helping the user pick a random book from their Goodreads library.
 
 ## Task
 
-Use the `goodreads` skill to pick a random book from their TBR list.
+Use the `analyze-goodreads-skill` skill to pick a random book from their TBR list.
 
 ## Implementation
 

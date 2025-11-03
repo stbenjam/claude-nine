@@ -46,7 +46,7 @@
     },
     {
       "name": "books",
-      "description": "Reading related stuff",
+      "description": "Various commands to work with my Calibre instance (very specific to mine, do not reccomend using)",
       "version": "0.0.1",
       "commands": [
         {
@@ -90,6 +90,54 @@
           "name": "find-incomplete-series",
           "id": "find-incomplete-series",
           "description": "Find incomplete series in your Calibre library and identify the next book to read in each series."
+        }
+      ],
+      "hooks": [],
+      "agents": [],
+      "has_readme": true,
+      "has_mcp": false
+    },
+    {
+      "name": "goodreads",
+      "description": "Various commands to work with a Goodreads export",
+      "version": "0.0.1",
+      "commands": [
+        {
+          "name": "next",
+          "description": "Analyze my reading patterns and suggest what to read next from my TBR",
+          "synopsis": "",
+          "argument_hint": ""
+        },
+        {
+          "name": "random",
+          "description": "Pick a random book from TBR or library",
+          "synopsis": "",
+          "argument_hint": ""
+        },
+        {
+          "name": "series",
+          "description": "List unfinished series and the next book to read in each",
+          "synopsis": "",
+          "argument_hint": ""
+        },
+        {
+          "name": "stats",
+          "description": "Show reading statistics (books per year/month, pages read, average rating, genre breakdown)",
+          "synopsis": "",
+          "argument_hint": ""
+        },
+        {
+          "name": "vibes",
+          "description": "Find similar books in your library based on genre, author, or themes",
+          "synopsis": "",
+          "argument_hint": ""
+        }
+      ],
+      "skills": [
+        {
+          "name": "use-goodreads-export",
+          "id": "analyze-goodreads-export",
+          "description": "Search and query Goodreads library from CSV export. Use when the user asks about books, TBR (to-be-read), reading lists, book searches, or mentions Goodreads. Also use for queries about book ratings, authors, reading status, or library statistics."
         }
       ],
       "hooks": [],
