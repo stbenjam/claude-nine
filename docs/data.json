@@ -62,6 +62,12 @@
           "argument_hint": ""
         },
         {
+          "name": "series",
+          "description": "List unfinished series and the next book to read in each",
+          "synopsis": "",
+          "argument_hint": ""
+        },
+        {
           "name": "stats",
           "description": "Show reading statistics (books per year/month, pages read, average rating, genre breakdown)",
           "synopsis": "",

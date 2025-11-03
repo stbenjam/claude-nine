@@ -130,3 +130,12 @@ Jan: X books | Feb: X books | Mar: X books | etc.
 - Compare current year to all-time averages where interesting
 - Exclude archived books from all queries
 - Handle missing data gracefully (some books may not have all custom fields set)
+
+## Implementation Notes
+
+**Bash/Python Pitfalls:**
+- Multi-line bash for loops are tricky - use Python with heredoc instead for complex iteration
+- When looping through months to count books, use Python's subprocess module rather than bash for loops
+- When processing JSON data from calibredb, be careful with missing fields - always use `.get()` with defaults
+- Keep Python data processing scripts simple - avoid complex inline data structures that can have KeyError issues
+- Better to do multiple simple queries than one complex Python script with hard-coded data
