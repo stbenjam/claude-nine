@@ -1,0 +1,8 @@
+{
+  "name": "calendar",
+  "description": "macOS Calendar integration via icalBuddy and AppleScript",
+  "version": "0.0.1",
+  "author": {
+    "name": "Stephen Benjamin"
+  }
+}
