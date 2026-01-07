@@ -3,6 +3,8 @@
 This document lists all available Claude Code plugins and their commands in the ai-helpers repository.
 
 - [Books](#books-plugin)
+- [Calendar](#calendar-plugin)
+- [Cc 10113 Reproducer](#cc-10113-reproducer-plugin)
 - [Git](#git-plugin)
 - [Goodreads](#goodreads-plugin)
 - [Pr Automation](#pr-automation-plugin)
@@ -19,6 +21,27 @@ TODO: Add description
 - **`/books:vibes`** - Find similar books in your library based on genre, author, or themes
 
 See [plugins/books/README.md](plugins/books/README.md) for detailed documentation.
+
+### Calendar Plugin
+
+macOS Calendar integration via icalBuddy and AppleScript
+
+**Commands:**
+- **`/calendar:create`** - Create a new calendar event
+- **`/calendar:today`** - Show today's calendar events
+- **`/calendar:tomorrow`** - Show tomorrow's calendar events
+- **`/calendar:week`** - Show this week's calendar events
+
+See [plugins/calendar/README.md](plugins/calendar/README.md) for detailed documentation.
+
+### Cc 10113 Reproducer Plugin
+
+TODO: Add description
+
+**Commands:**
+- **`/cc-10113-reproducer:example`** - Runs an example check
+
+See [plugins/cc-10113-reproducer/README.md](plugins/cc-10113-reproducer/README.md) for detailed documentation.
 
 ### Git Plugin
 

@@ -2,7 +2,9 @@
   "permissions": {
     "allow": [
       "Bash(awk:*)",
-      "Bash(python3:*)"
+      "Bash(python3:*)",
+      "Skill(calendar:calendar)",
+      "Bash(icalBuddy:*)"
     ],
     "deny": [],
     "ask": []

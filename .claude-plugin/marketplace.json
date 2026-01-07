@@ -23,6 +23,16 @@
       "name": "goodreads",
       "source": "./plugins/goodreads",
       "description": "Various commands to work with a Goodreads export"
+    },
+    {
+      "name": "calendar",
+      "source": "./plugins/calendar",
+      "description": "macOS Calendar integration via icalBuddy and AppleScript"
+    },
+    {
+      "name": "cc-10113-reproducer",
+      "source": "./plugins/cc-10113-reproducer",
+      "description": "TODO: Add description"
     }
   ]
 }

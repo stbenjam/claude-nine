@@ -144,6 +144,72 @@
       "agents": [],
       "has_readme": true,
       "has_mcp": false
+    },
+    {
+      "name": "calendar",
+      "description": "macOS Calendar integration via icalBuddy and AppleScript",
+      "version": "0.0.1",
+      "commands": [
+        {
+          "name": "create",
+          "description": "Create a new calendar event",
+          "synopsis": "",
+          "argument_hint": ""
+        },
+        {
+          "name": "today",
+          "description": "Show today's calendar events",
+          "synopsis": "",
+          "argument_hint": ""
+        },
+        {
+          "name": "tomorrow",
+          "description": "Show tomorrow's calendar events",
+          "synopsis": "",
+          "argument_hint": ""
+        },
+        {
+          "name": "week",
+          "description": "Show this week's calendar events",
+          "synopsis": "",
+          "argument_hint": ""
+        }
+      ],
+      "skills": [
+        {
+          "name": "calendar",
+          "id": "calendar",
+          "description": "Query and manage macOS Calendar events. Use when the user asks about calendar events, appointments, schedules, or wants to create/modify calendar entries."
+        }
+      ],
+      "hooks": [],
+      "agents": [],
+      "has_readme": true,
+      "has_mcp": false
+    },
+    {
+      "name": "cc-10113-reproducer",
+      "description": "TODO: Add description",
+      "version": "0.0.1",
+      "commands": [
+        {
+          "name": "example",
+          "description": "Runs an example check",
+          "synopsis": "/cc-10113-reproducer:example",
+          "argument_hint": ""
+        }
+      ],
+      "skills": [
+        {
+          "name": "run-check",
+          "id": "run-check",
+          "description": "Run a check script to verify skill path resolution works correctly"
+        }
+      ],
+      "hooks": [],
+      "agents": [],
+      "has_readme": true,
+      "has_mcp": false
     }
   ]
 }
