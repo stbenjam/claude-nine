@@ -5,6 +5,7 @@ This document lists all available Claude Code plugins and their commands in the 
 - [Books](#books-plugin)
 - [Calendar](#calendar-plugin)
 - [Cc 10113 Reproducer](#cc-10113-reproducer-plugin)
+- [Finances](#finances-plugin)
 - [Git](#git-plugin)
 - [Goodreads](#goodreads-plugin)
 - [Pr Automation](#pr-automation-plugin)
@@ -42,6 +43,15 @@ TODO: Add description
 - **`/cc-10113-reproducer:example`** - Runs an example check
 
 See [plugins/cc-10113-reproducer/README.md](plugins/cc-10113-reproducer/README.md) for detailed documentation.
+
+### Finances Plugin
+
+Manage HSA receipts and financial documents
+
+**Commands:**
+- **`/finances:add-hsa-receipt` `<path-to-receipt>`** - Process and file an HSA receipt
+
+See [plugins/finances/README.md](plugins/finances/README.md) for detailed documentation.
 
 ### Git Plugin
 

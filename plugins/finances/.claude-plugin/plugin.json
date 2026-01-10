@@ -1,0 +1,8 @@
+{
+  "name": "finances",
+  "description": "Manage HSA receipts and financial documents",
+  "version": "0.0.1",
+  "author": {
+    "name": "User"
+  }
+}

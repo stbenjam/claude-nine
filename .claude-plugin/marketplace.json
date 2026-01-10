@@ -33,6 +33,11 @@
       "name": "cc-10113-reproducer",
       "source": "./plugins/cc-10113-reproducer",
       "description": "TODO: Add description"
+    },
+    {
+      "name": "finances",
+      "source": "./plugins/finances",
+      "description": "Manage HSA receipts and financial documents"
     }
   ]
 }
