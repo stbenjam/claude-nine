@@ -5,11 +5,6 @@
   },
   "plugins": [
     {
-      "name": "pr-automation",
-      "source": "./plugins/pr-automation",
-      "description": "Automate pull request workflows"
-    },
-    {
       "name": "git",
       "source": "./plugins/git",
       "description": "Git workflows"
@@ -28,11 +23,6 @@
       "name": "calendar",
       "source": "./plugins/calendar",
       "description": "macOS Calendar integration via icalBuddy and AppleScript"
-    },
-    {
-      "name": "cc-10113-reproducer",
-      "source": "./plugins/cc-10113-reproducer",
-      "description": "TODO: Add description"
     },
     {
       "name": "finances",
