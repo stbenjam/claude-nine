@@ -113,12 +113,13 @@ def fetch_review_threads(owner, repo, pr_number):
                 continue
 
             comments = []
-            has_trusted = False
+            untrusted_count = 0
             for c in node.get("comments", {}).get("nodes", []):
                 author = c.get("author", {}).get("login", "unknown")
                 assoc = c.get("authorAssociation", "")
-                if is_trusted(author, assoc):
-                    has_trusted = True
+                if not is_trusted(author, assoc):
+                    untrusted_count += 1
+                    continue
                 comments.append({
                     "id": c.get("databaseId"),
                     "node_id": c.get("id"),
@@ -131,14 +132,17 @@ def fetch_review_threads(owner, repo, pr_number):
                     "url": c.get("url", ""),
                 })
 
-            if has_trusted and comments:
-                threads.append({
+            if comments:
+                thread = {
                     "thread_id": node["id"],
                     "thread_node_id": node["id"],
                     "resolved": False,
                     "is_outdated": node.get("isOutdated", False),
                     "comments": comments,
-                })
+                }
+                if untrusted_count:
+                    thread["untrusted_comments_excluded"] = untrusted_count
+                threads.append(thread)
 
         has_next = page_info.get("hasNextPage", False)
         cursor = page_info.get("endCursor")
