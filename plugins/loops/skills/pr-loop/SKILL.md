@@ -1,6 +1,6 @@
 ---
 name: "pr-loop"
-description: "Shepherd a PR to mergeable state: merge base branch, fix CI, address review comments, resolve threads, and loop until green and approved."
+description: "Shepherd a PR: merge base branch, fix CI, address review comments, resolve threads, and monitor until merged."
 argument-hint: "[pr-url]"
 ---
 
