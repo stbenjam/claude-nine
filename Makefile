@@ -15,6 +15,10 @@ lint: ## Lint plugins and skills with skillsaw (strict mode)
 lint-fix: ## Apply skillsaw autofixes
 	uvx skillsaw==$(SKILLSAW_VERSION) fix
 
+.PHONY: docs
+docs: ## Generate plugin/skill documentation to docs/index.html
+	uvx skillsaw==$(SKILLSAW_VERSION) docs --format html -o docs/index.html --title "claude-nine"
+
 .PHONY: new-plugin
 new-plugin: ## Create a new plugin (usage: make new-plugin NAME=my-plugin)
 	@if [ -z "$(NAME)" ]; then \
