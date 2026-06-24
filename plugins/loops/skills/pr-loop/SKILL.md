@@ -74,12 +74,12 @@ If running inside tmux (`$TMUX` is set), update both the window
 and session name to reflect the PR being shepherded:
 
 ```bash
-tmux rename-window "PR Loop: <owner>/<repo>#<pr_number>"
-tmux rename-session "PR Loop: <owner>/<repo>#<pr_number>"
+tmux rename-session "PR Loops"
+tmux rename-window "<owner>/<repo>#<pr_number>"
 ```
 
-This makes it easy to identify what each tmux window/session is
-doing when multiple pr-loop sessions are running concurrently.
+This groups all pr-loop windows under a single `PR Loops`
+session, with each window named after its PR.
 
 #### Step 1.5: Record start time
 
