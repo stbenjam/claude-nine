@@ -95,7 +95,17 @@ If this fails, stop and report the error to the user.
 Record the current UTC timestamp. This is the session start time,
 used for the 30-minute idle timeout in the termination check.
 
-### Phase 2 — Rebase Check
+### Phase 2 — Rebase Check (first iteration only)
+
+Merge the base branch once at the start. Do NOT repeat this on
+every loop iteration — high-frequency repos (e.g. `openshift/release`)
+merge dozens of PRs per hour and re-merging every loop creates
+unnecessary churn and CI re-triggers.
+
+Only re-run this phase later if:
+- A push fails due to **merge conflicts** with the base branch
+- GitHub **branch protection requires** the PR to be up to date
+  before merging (check the PR's merge requirements)
 
 #### Step 2.1: Determine the merge base
 
@@ -285,15 +295,14 @@ answered the question. Do not resolve threads you skipped.
 
 ### Phase 5 — Termination Check
 
-After completing Phases 2-4, evaluate whether to loop or stop.
+After completing Phases 3-4, evaluate whether to loop or stop.
 
 **Terminate when ALL of these are true:**
 
 1. **All CI checks pass** — re-check `statusCheckRollup` and confirm
 2. **All review comments addressed** — re-run `fetch_comments.py`
    and confirm no new unresolved threads from trusted reviewers
-3. **PR is up to date with merge base** — re-check Phase 2
-4. **30 minutes have passed since the last activity** — compare
+3. **30 minutes have passed since the last activity** — compare
    current time to the timestamp of the last push, comment reply,
    or thread resolution. If nothing happened in 30 minutes, stop.
 
@@ -301,7 +310,6 @@ After completing Phases 2-4, evaluate whether to loop or stop.
 
 - New comments appeared → go to Phase 3
 - CI failed after your push → go to Phase 3
-- PR fell behind merge base → go to Phase 2
 - Less than 30 minutes since last activity and work remains → loop
 
 **Loop cap:** Maximum 25 iterations to prevent runaway loops.
@@ -315,11 +323,9 @@ Choose the wait interval based on what you're waiting for:
 - **Waiting on long-running e2e CI** (`openshift*`/`kubernetes*`
   repos, or Prow e2e jobs): schedule the next iteration for
   **1 hour later**.
-- **Waiting on fast CI or reviewer responses**: wait **2 minutes**
-  before the next iteration.
-
-Use the ScheduleWakeup mechanism if running in /loop mode,
-otherwise just wait.
+- **Waiting on fast CI or reviewer responses**: wait until the
+  next scheduled `/loop` interval. Do not add your own sleep on
+  top of the loop schedule.
 
 ### Phase 6 — Final Report
 
