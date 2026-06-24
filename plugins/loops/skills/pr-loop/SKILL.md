@@ -68,11 +68,24 @@ then sets up the proper branch tracking inside the worktree.
 If a worktree for this PR already exists (from a previous
 iteration), `cd` into it instead of creating a new one.
 
-#### Step 1.4: Record start time
+#### Step 1.4: Set tmux window and session title
+
+If running inside tmux (`$TMUX` is set), update both the window
+and session name to reflect the PR being shepherded:
+
+```bash
+tmux rename-session "PR Loops"
+tmux rename-window "<owner>/<repo>#<pr_number>"
+```
+
+This groups all pr-loop windows under a single `PR Loops`
+session, with each window named after its PR.
+
+#### Step 1.5: Record start time
 
 Record current UTC timestamp for backoff schedule calculations.
 
-#### Step 1.5: Load project references
+#### Step 1.6: Load project references
 
 Match `<owner>/<repo>` against patterns below. Only read the
 matching file.
@@ -82,7 +95,7 @@ matching file.
 
 Matching references override the corresponding phases below.
 
-#### Step 1.6: Schedule the loop
+#### Step 1.7: Schedule the loop
 
 Check `CronList` — if pr-loop crons already exist for this PR,
 skip. Otherwise create two crons:
@@ -212,7 +225,7 @@ Phase 3 immediately.
 
 #### Step 5.3: Exponential backoff
 
-Interval based on time since Step 1.4. Project references may
+Interval based on time since Step 1.5. Project references may
 override.
 
 | Elapsed        | Interval | Action                    |
