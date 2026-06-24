@@ -45,14 +45,23 @@ If no open PR found, ask the user for a URL.
 
 #### Step 1.2: Clone or locate repo
 
-Skipped when using current branch. Check `$GIT_DIR/<repo>`
-(default `~/git/<repo>`) for existing clone with matching remote.
-Otherwise `gh repo clone <owner>/<repo>` and `cd` into it.
+Check `$GIT_DIR/<repo>` (default `~/git/<repo>`) for existing
+clone with matching remote. Otherwise
+`gh repo clone <owner>/<repo>` and `cd` into it.
 
-#### Step 1.3: Check out the PR
+#### Step 1.3: Create worktree and check out the PR
 
-Skipped when using current branch.
-`gh pr checkout <pr_number>`
+Always work in a git worktree to avoid disturbing the user's
+working directory. Create one for this PR:
+
+```bash
+git worktree add .worktrees/pr-<pr_number> -b pr-loop/<pr_number>
+cd .worktrees/pr-<pr_number>
+gh pr checkout <pr_number>
+```
+
+If a worktree for this PR already exists (from a previous
+iteration), `cd` into it instead of creating a new one.
 
 #### Step 1.4: Record start time
 
@@ -207,8 +216,13 @@ override.
 #### Step 5.4: Terminate
 
 1. `CronDelete` the pr-loop cron
-2. Notify user via `notify_user`
-3. Report: result (merged/timed out/error), CI status, comment
+2. Clean up the worktree:
+   ```bash
+   git worktree remove .worktrees/pr-<pr_number>
+   git branch -d pr-loop/<pr_number>
+   ```
+3. Notify user
+4. Report: result (merged/timed out/error), CI status, comment
    status, changes made, threads resolved, outstanding items
 
 ## Error Handling
