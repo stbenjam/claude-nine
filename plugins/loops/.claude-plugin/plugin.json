@@ -1,0 +1,8 @@
+{
+  "name": "loops",
+  "description": "Autonomous loops that shepherd work to completion, such as driving a PR to a mergeable state",
+  "version": "0.0.1",
+  "author": {
+    "name": "stbenjam"
+  }
+}

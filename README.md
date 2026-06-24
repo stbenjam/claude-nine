@@ -25,6 +25,7 @@ Install a specific plugin:
 - **finances**: Manage HSA receipts and financial documents
 - **git**: Git and GitHub workflows, including the PR review queue
 - **goodreads**: Query a Goodreads CSV export
+- **loops**: Autonomous loops that shepherd work to completion, such as driving a PR to a mergeable state
 
 ## Development
 
