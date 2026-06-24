@@ -84,9 +84,16 @@ Matching references override the corresponding phases below.
 
 #### Step 1.6: Schedule the loop
 
-Check `CronList` — if a pr-loop cron already exists for this PR,
-skip. Otherwise `CronCreate` a recurring `/pr-loop <pr-url>`.
-See Step 5.3 for the backoff schedule.
+Check `CronList` — if pr-loop crons already exist for this PR,
+skip. Otherwise create two crons:
+
+1. **Dynamic cron** — `CronCreate` at the initial 10-minute
+   interval. This gets deleted and recreated at each iteration
+   as the backoff schedule progresses (Step 5.3).
+2. **Watcher cron** — `CronCreate` at a fixed 8-hour interval.
+   This is a permanent safety net that ensures the loop always
+   wakes up even if the dynamic cron fails to be scheduled.
+   Only cancelled at termination (Step 5.4).
 
 ### Phase 2 — Rebase Check
 
@@ -195,8 +202,9 @@ monitoring with backoff.
 
 #### Step 5.2: Schedule next iteration
 
-Delete existing pr-loop cron (`CronList` + `CronDelete`), then
-create a new one at the appropriate interval.
+Delete the **dynamic** cron (`CronList` + `CronDelete`), then
+create a new one at the appropriate interval. Do not touch the
+8-hour watcher cron.
 
 **Actionable items remain** (comments, CI to fix): go back to
 Phase 3 immediately.
@@ -220,7 +228,7 @@ override.
 
 #### Step 5.4: Terminate
 
-1. `CronDelete` the pr-loop cron
+1. `CronDelete` both the dynamic and watcher crons
 2. Clean up the worktree:
    ```bash
    git worktree remove .worktrees/pr-<pr_number>
