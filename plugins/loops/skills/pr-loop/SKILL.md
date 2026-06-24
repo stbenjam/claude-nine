@@ -55,10 +55,15 @@ Always work in a git worktree to avoid disturbing the user's
 working directory. Create one for this PR:
 
 ```bash
-git worktree add .worktrees/pr-<pr_number> -b pr-loop/<pr_number>
+git fetch origin pull/<pr_number>/head
+git worktree add .worktrees/pr-<pr_number> FETCH_HEAD --detach
 cd .worktrees/pr-<pr_number>
 gh pr checkout <pr_number>
 ```
+
+Use `--detach` to avoid conflicts if the user already has the
+PR branch checked out in the main working tree. `gh pr checkout`
+then sets up the proper branch tracking inside the worktree.
 
 If a worktree for this PR already exists (from a previous
 iteration), `cd` into it instead of creating a new one.
@@ -219,7 +224,6 @@ override.
 2. Clean up the worktree:
    ```bash
    git worktree remove .worktrees/pr-<pr_number>
-   git branch -d pr-loop/<pr_number>
    ```
 3. Notify user
 4. Report: result (merged/timed out/error), CI status, comment
