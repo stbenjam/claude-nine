@@ -1,5 +1,7 @@
 # claude-nine
 
+[![skillsaw grade](https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fstbenjam%2Fclaude-nine%2Fmain%2F.skillsaw-badge.json)](https://skillsaw.org/)
+
 Claude Code Plugins by stbenjam
 
 ## Installation
@@ -13,30 +15,30 @@ Add the marketplace to Claude Code:
 Install a specific plugin:
 
 ```
-/plugin install example-plugin@claude-nine
+/plugin install books@claude-nine
 ```
 
 ## Plugins
 
-- **example-plugin**: Example plugin demonstrating command structure
+- **books**: Query a Calibre library (TBR, series, stats, recommendations)
+- **calendar**: macOS Calendar integration via icalBuddy and AppleScript
+- **finances**: Manage HSA receipts and financial documents
+- **git**: Git and GitHub workflows, including the PR review queue
+- **goodreads**: Query a Goodreads CSV export
 
 ## Development
 
-Run the linter to validate plugin structure:
+Lint plugins and skills with [skillsaw](https://skillsaw.org/) (strict mode):
 
 ```bash
 make lint
 ```
 
-Update plugin documentation and website:
+Apply autofixes:
 
 ```bash
-make update
+make lint-fix
 ```
-
-## Documentation
-
-Visit the [documentation site](https://stbenjam.github.io/claude-nine) for more information.
 
 ## License
 

@@ -75,6 +75,6 @@ You have X incomplete series:
 - Books are sorted by series_index within each series
 - Only show series where at least one book has been read
 - The "next" book is the first unread book in series order
-- Handle missing data gracefully (pages, ratings may be missing)
+- Show 'N/A' when a book's pages or rating field is missing
 - Use the Bash tool to run your Python script
 - Replace `__SKILL_DIR__` with the actual skill directory path

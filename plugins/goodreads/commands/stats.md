@@ -137,5 +137,5 @@ Use the Bash tool to run your Python script.
 - Calculate percentages and averages from the data
 - Present large numbers with thousand separators for readability
 - Compare current year to all-time averages where interesting
-- Handle missing data gracefully (some books may not have all fields)
+- Skip books missing a required field rather than erroring, and report how many were skipped
 - Round floating point values to 2 decimal places for readability

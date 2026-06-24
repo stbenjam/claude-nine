@@ -119,7 +119,7 @@ if ref_book.series:
 - Prioritize unread books in results
 - Custom shelves can indicate genres (e.g., "mental-health", "favorites")
 - Limit results to 3 per category for readability
-- Handle missing data gracefully
+- Show 'N/A' for any missing field rather than dropping the book from results
 - Use the Bash tool to run your Python script
 - Replace `__SKILL_DIR__` with the actual skill directory path
 - Replace `BOOK_TITLE` with the user's search term

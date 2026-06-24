@@ -80,6 +80,6 @@ Total TBR books: XX
 
 - Pick from books where `is_tbr` is True
 - Display relevant metadata (series, pages, rating, date added)
-- Handle missing data gracefully
+- Show 'N/A' for any missing series, page-count, rating, or date-added field
 - Use the Bash tool to run your Python script
 - Replace `__SKILL_DIR__` with the actual skill directory path

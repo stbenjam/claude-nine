@@ -81,7 +81,7 @@ icalBuddy -ec "Holidays,US Holidays" -f eventsToday+1
 - Full access to event properties
 - Works with all calendar types
 
-**IMPORTANT NOTES:**
+**Performance and usage notes:**
 - AppleScript queries can be VERY SLOW with synced calendars (Google, iCloud, Exchange)
 - Use short timeouts (5-10 seconds) when using AppleScript
 - Always use icalBuddy for reading events unless you need specific event properties not available via icalBuddy
@@ -264,7 +264,7 @@ osascript -e 'tell application "Calendar" to get name of calendars'
 ## Best Practices
 
 ### For Queries (Reading Events)
-1. **ALWAYS use icalBuddy** - it's fast and reliable
+1. **Use icalBuddy for every read** - it's fast and reliable
 2. Use appropriate timeout (5 seconds is usually enough)
 3. Filter out holiday calendars if not needed
 4. Format output for readability
@@ -368,6 +368,6 @@ icalBuddy -ic "stbenjam@redhat.com" -f eventsFrom:today+7 to:today+14
 ## Safety Notes
 
 - **Read-only with icalBuddy**: No risk of modifying data
-- **Be careful with AppleScript**: Confirm before deleting events
+- **AppleScript mutations**: Confirm the target event with the user before deleting or modifying it
 - **Ask before creating**: Confirm event details before creation
 - **Respect calendar selection**: Use appropriate calendar based on event type

@@ -92,7 +92,7 @@ If the user specifies additional criteria, combine them:
 - If pool is small (< 10 books), mention all options
 - Exclude archived books by default unless user specifically asks
 - Make selection truly random - don't bias toward highest rated or recently added
-- If user runs command multiple times, try to avoid repeating recent suggestions
+- If user runs command multiple times, avoid repeating any suggestion from the last 5 runs
 
 ## Example Python Snippet for Randomization
 

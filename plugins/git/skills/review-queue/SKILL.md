@@ -1,18 +1,20 @@
 ---
-description: Generate a report of PRs needing reviews
-argument-hint: [org/repo]
+name: review-queue
+description: Generate a report of GitHub pull requests that need review attention. Use when the user asks about their PR review queue, which PRs need reviewing, the status of their open PRs across repositories, or invokes /git:review-queue.
+user-invocable: true
 ---
 
-## Name
-git:review-queue
+# Review Queue
 
-## Synopsis
+Generate a comprehensive report of pull requests that need attention. This skill operates in two modes: analyzing your own PRs across repositories, or providing a detailed breakdown of all open PRs in a specific repository. It integrates with GitHub's tide status to identify merge blockers, categorizes PRs by review state, and helps prioritize review work.
+
+## Invocation
+
 ```
 /git:review-queue [org/repo]
 ```
 
-## Description
-The `git:review-queue` command generates a comprehensive report of pull requests that need attention. It operates in two modes: analyzing your own PRs across repositories, or providing a detailed breakdown of all open PRs in a specific repository. The command integrates with GitHub's tide status to identify merge blockers, categorizes PRs by review state, and helps prioritize review work.
+- `org/repo` (optional): Repository to analyze in format `owner/repo`. If omitted, reports your PRs across all repositories.
 
 **Key capabilities:**
 - Identify your PRs awaiting reviews, approvals, or blocked by CI
@@ -22,7 +24,7 @@ The `git:review-queue` command generates a comprehensive report of pull requests
 - Parse tide status to understand merge requirements
 - Categorize PRs by review state and priority
 
-This command is particularly useful for:
+This skill is particularly useful for:
 - **Maintainers**: Get an overview of repository review queue
 - **Contributors**: Track status of your own PRs across multiple repos
 - **Reviewers**: Find PRs that need your attention based on your previous involvement
@@ -288,15 +290,6 @@ Current User: @stbenjam
   Changes: +347/-123 across 8 files
   URL: https://github.com/openshift/installer/pull/5234
 
-- #5189 fix: correct AWS region validation (opened 1 day ago)
-  Author: @stbenjam
-  Tide: Needs lgtm label, needs approved label
-  CI: All 6 checks passing
-  Reviews: No reviews yet
-  Labels: size/S, bugfix
-  Changes: +23/-15 across 2 files
-  URL: https://github.com/openshift/installer/pull/5189
-
 ### Requested Changes (1)
 
 - #5156 refactor: improve error handling in bootstrap (opened 5 days ago)
@@ -312,28 +305,6 @@ Current User: @stbenjam
 
 ## Repository: openshift/installer (28 open PRs, 15 needing review)
 
-### PRs I've Reviewed (2)
-
-- #5198 feat: support for additional Azure regions (opened 7 days ago)
-  Author: @contributor1
-  Your last comment: 3 days ago
-  Tide: Needs approved label
-  CI: All 8 checks passing
-  Reviews: 1 lgtm (@stbenjam), awaiting approval
-  Labels: size/M, azure
-  Changes: +234/-67 across 12 files
-  URL: https://github.com/openshift/installer/pull/5198
-
-- #5167 fix: handle IPv6 configuration edge cases (opened 10 days ago)
-  Author: @contributor2
-  Your last comment: 5 days ago
-  Tide: Needs lgtm label and approved label
-  CI: 7/8 checks passing (unit-tests failing)
-  Reviews: 2 comments (@stbenjam, @other-reviewer)
-  Labels: size/L, networking
-  Changes: +445/-178 across 15 files
-  URL: https://github.com/openshift/installer/pull/5167
-
 ### Fresh PRs - No Reviews Yet (5)
 
 - #5221 fix: prevent timeout errors during cluster creation (opened 4 days ago)
@@ -344,30 +315,6 @@ Current User: @stbenjam
   Labels: size/M, bugfix
   Changes: +87/-34 across 4 files
   URL: https://github.com/openshift/installer/pull/5221
-
-- #5215 feat: add retry logic for API calls (opened 5 days ago)
-  Author: @contributor4
-  Tide: Needs lgtm label and approved label, Job e2e-aws failed
-  CI: 6/8 checks passing (2 jobs failing)
-  Reviews: No reviews yet
-  Labels: size/L
-  Changes: +312/-156 across 9 files
-  URL: https://github.com/openshift/installer/pull/5215
-
-[... 3 more PRs ...]
-
-### In Discussion (8)
-
-- #5187 feat: improve logging throughout installer (opened 8 days ago)
-  Author: @contributor5
-  Tide: Needs approved label
-  CI: All 8 checks passing
-  Reviews: 1 lgtm (@reviewer2), 2 comments (@reviewer3, @reviewer4)
-  Labels: size/XL, enhancement
-  Changes: +678/-234 across 23 files
-  URL: https://github.com/openshift/installer/pull/5187
-
-[... 7 more PRs ...]
 
 ### Excluded from Review
 - 3 PRs with merge conflicts
@@ -385,230 +332,13 @@ Current User: @stbenjam
 
 ## Examples
 
-### Example 1: Check Your Own PRs
+All examples produce a report in the format shown under **Return Value** above. Each entry below lists the invocation and the distinguishing behavior to expect.
 
-```
-/git:review-queue
-```
-
-Output:
-```markdown
-# Review Queue Report
-All Repositories
-Generated: 2025-10-31 14:30 UTC
-Current User: @alice
-
----
-
-## My PRs Needing Attention (4)
-
-### Awaiting Reviews (3)
-
-- #234 [openshift/api] feat: add new validation rules (opened 2 days ago)
-  Tide: Needs lgtm label and approved label
-  CI: All 4 checks passing
-  Reviews: No reviews yet
-  URL: https://github.com/openshift/api/pull/234
-
-- #567 [kubernetes/kubernetes] fix: correct scheduler behavior (opened 5 days ago)
-  Tide: Needs lgtm label and approved label
-  CI: 15/16 checks passing (integration-test pending)
-  Reviews: No reviews yet
-  URL: https://github.com/kubernetes/kubernetes/pull/567
-
-- #89 [openshift/installer] docs: update installation guide (opened 1 day ago)
-  Tide: Needs lgtm label and approved label
-  CI: All 3 checks passing
-  Reviews: No reviews yet
-  URL: https://github.com/openshift/installer/pull/89
-
-### Requested Changes (1)
-
-- #445 [openshift/cluster-api] refactor: improve error handling (opened 7 days ago)
-  Tide: Needs lgtm label after addressing feedback
-  CI: All 6 checks passing
-  Reviews: 1 change request (@bob, 3 days ago)
-  URL: https://github.com/openshift/cluster-api/pull/445
-
----
-
-💡 Priority: Address change request on PR #445, then follow up on #567 (oldest)
-```
-
-### Example 2: Check Repository Review Queue
-
-```
-/git:review-queue openshift/installer
-```
-
-Output:
-```markdown
-# Review Queue Report
-Repository: openshift/installer
-Generated: 2025-10-31 14:35 UTC
-Current User: @bob
-
----
-
-## Repository: openshift/installer (18 open PRs, 12 needing review)
-
-### PRs I've Reviewed (1)
-
-- #5234 feat: add support for custom networking (opened 3 days ago)
-  Author: @alice
-  Your last comment: 1 day ago
-  Tide: Needs approved label
-  CI: All 6 checks passing
-  Reviews: 1 lgtm (@bob), awaiting approval
-  URL: https://github.com/openshift/installer/pull/5234
-
-### Fresh PRs - No Reviews Yet (6)
-
-- #5267 fix: handle cluster deletion errors (opened 2 days ago)
-  Author: @charlie
-  Tide: Needs lgtm label and approved label
-  CI: All 7 checks passing
-  Reviews: No reviews yet
-  Labels: size/S, bugfix
-  Changes: +34/-12 across 2 files
-  URL: https://github.com/openshift/installer/pull/5267
-
-- #5245 feat: add support for proxy configuration (opened 6 days ago)
-  Author: @diana
-  Tide: Needs lgtm label and approved label
-  CI: 8/9 checks passing (e2e-vsphere pending)
-  Reviews: No reviews yet
-  Labels: size/L, enhancement
-  Changes: +423/-67 across 11 files
-  URL: https://github.com/openshift/installer/pull/5245
-
-[... 4 more PRs ...]
-
-### In Discussion (5)
-
-- #5198 feat: improve Azure integration (opened 9 days ago)
-  Author: @eve
-  Tide: Needs lgtm label
-  CI: All 8 checks passing
-  Reviews: 2 comments (@frank, @grace)
-  Labels: size/XL, azure
-  Changes: +789/-234 across 19 files
-  URL: https://github.com/openshift/installer/pull/5198
-
-[... 4 more PRs ...]
-
-### Excluded from Review
-- 2 PRs with merge conflicts
-- 1 draft PR
-- 3 PRs with failing required CI
-
----
-
-💡 Priority recommendations:
-1. Review fresh PR #5245 (6 days old, substantial changes)
-2. Review fresh PR #5267 (small bugfix, easy win)
-3. PR #5234 (you reviewed) needs approval from maintainer
-```
-
-### Example 3: Repository with No PRs Needing Review
-
-```
-/git:review-queue openshift/api
-```
-
-Output:
-```markdown
-# Review Queue Report
-Repository: openshift/api
-Generated: 2025-10-31 14:40 UTC
-Current User: @henry
-
----
-
-## Repository: openshift/api (4 open PRs, 0 needing review)
-
-All open PRs are either:
-- Draft PRs (2)
-- Have merge conflicts (1)
-- Awaiting CI results (1)
-
-### Excluded from Review
-- 2 draft PRs
-- 1 PR with merge conflicts
-- 1 PR with failing required CI
-
----
-
-✅ No PRs currently need review. Check back later!
-```
-
-### Example 4: Your PRs All In Good State
-
-```
-/git:review-queue
-```
-
-Output:
-```markdown
-# Review Queue Report
-All Repositories
-Generated: 2025-10-31 14:45 UTC
-Current User: @isabel
-
----
-
-## My PRs Needing Attention (0)
-
-### Ready to Merge (2)
-
-- #678 [openshift/installer] feat: add new platform support (opened 4 days ago)
-  Tide: In merge queue (position 3)
-  CI: All 8 checks passing
-  Reviews: 2 approvals (@jack, @karen)
-  URL: https://github.com/openshift/installer/pull/678
-
-- #345 [openshift/api] fix: validation bug (opened 2 days ago)
-  Tide: Ready to merge
-  CI: All 4 checks passing
-  Reviews: 2 approvals (@lisa, @mike)
-  URL: https://github.com/openshift/api/pull/345
-
----
-
-✅ All your PRs are approved or in the merge queue!
-```
-
-### Example 5: Large Repository with Many PRs
-
-```
-/git:review-queue kubernetes/kubernetes
-```
-
-Output shows first 50 PRs with note:
-```markdown
-# Review Queue Report
-Repository: kubernetes/kubernetes
-Generated: 2025-10-31 14:50 UTC
-Current User: @noah
-
----
-
-## Repository: kubernetes/kubernetes (247 open PRs, showing 50 most recent)
-
-ℹ️  Note: This repository has many open PRs. Showing most recent 50. Use filters to narrow down:
-   - gh pr list --repo kubernetes/kubernetes --label "area/scheduler"
-   - gh pr list --repo kubernetes/kubernetes --author "@me"
-
-[... categorized list of 50 PRs ...]
-
----
-
-💡 Tip: Focus on "Fresh PRs" in your area of expertise for maximum impact
-```
-
-## Arguments
-
-- `org/repo` (optional): Repository to analyze in format `owner/repo`. If omitted, shows your PRs across all repositories.
+- **`/git:review-queue`** — My-PRs mode across all repositories. Groups your open PRs into Awaiting Reviews, Requested Changes, Blocked by CI, and Ready to Merge, and closes with a priority recommendation (oldest waiting PR / outstanding change requests first).
+- **`/git:review-queue openshift/installer`** — Repository mode. Groups the repo's open PRs into PRs I've Reviewed, Fresh PRs (No Reviews Yet), and In Discussion, with an Excluded from Review summary (merge conflicts, drafts, failing required CI).
+- **Repository with nothing to review** — when every open PR is a draft, has merge conflicts, or is awaiting CI, all categories are empty and the report ends with `✅ No PRs currently need review.`
+- **Your PRs all in good state** — when no PR needs attention, My PRs Needing Attention is 0 and Ready to Merge lists approved / in-merge-queue PRs.
+- **Large repository (>100 open PRs)** — only the 50 most recent are shown, prefixed with an `ℹ️` note suggesting `gh pr list` filters (`--label`, `--author "@me"`) to narrow the set.
 
 ## Notes
 
@@ -647,13 +377,13 @@ Tide is Prow's merge automation system. Common tide status messages:
 ### Performance Considerations
 
 - For repositories with >100 PRs, only the 100 most recent are analyzed
-- API calls are batched where possible to avoid rate limits
+- Batch API calls into a single GraphQL query (or paginated REST call) to avoid rate limits
 - Results can be cached for 5-10 minutes for repeated queries
 - Use `--json` output from `gh` CLI for efficient parsing
 
 ### GitHub Permissions
 
-This command requires:
+This skill requires:
 - Read access to the repository
 - GitHub CLI (`gh`) authenticated
 - Access to GitHub Status API for tide information

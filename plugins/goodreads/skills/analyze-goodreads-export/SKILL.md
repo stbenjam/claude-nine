@@ -1,5 +1,5 @@
 ---
-name: use-goodreads-export
+name: analyze-goodreads-export
 description: Search and query Goodreads library from CSV export. Use when the user asks about books, TBR (to-be-read), reading lists, book searches, or mentions Goodreads. Also use for queries about book ratings, authors, reading status, or library statistics.
 ---
 
@@ -132,7 +132,7 @@ for book in highly_rated[:10]:
 - Date Read determines if a book has been read
 - Exclusive Shelf contains values like "to-read", "currently-reading", "mental-health", "favorites"
 - Users may have custom shelves in the Bookshelves field
-- Handle missing data gracefully (not all books have all fields)
+- Use `.get()` with defaults for optional fields; skip a book only when a required field is absent
 - Always use proper Python error handling when accessing optional fields
 
 ## Troubleshooting

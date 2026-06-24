@@ -1,0 +1,16 @@
+{
+  "version": "1",
+  "generated_by": "skillsaw 0.14.1",
+  "generated_at": "2026-06-24T00:21:22.247916+00:00",
+  "violations": [
+    {
+      "fingerprint": "7371a0b665795d87",
+      "rule_id": "context-budget",
+      "file_path": "plugins/git/skills/review-queue/SKILL.md",
+      "message": "Estimated 3,055 tokens exceeds skill warn limit of 3,000",
+      "severity": "warning",
+      "value": 3055,
+      "baseline_mode": "ceiling"
+    }
+  ]
+}
