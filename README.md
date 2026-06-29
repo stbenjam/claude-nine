@@ -26,6 +26,7 @@ Install a specific plugin:
 - **git**: Git and GitHub workflows, including the PR review queue
 - **goodreads**: Query a Goodreads CSV export
 - **loops**: Autonomous loops that shepherd work to completion, such as driving a PR to a mergeable state
+- **reviews**: Multi-agent panel code review with specialist reviewers and runtime reproducers
 
 ## Development
 
