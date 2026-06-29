@@ -33,6 +33,11 @@
       "name": "loops",
       "source": "./plugins/loops",
       "description": "Autonomous loops that shepherd work to completion, such as driving a PR to a mergeable state"
+    },
+    {
+      "name": "reviews",
+      "source": "./plugins/reviews",
+      "description": "Multi-agent panel code review with specialist reviewers and runtime reproducers"
     }
   ]
 }
