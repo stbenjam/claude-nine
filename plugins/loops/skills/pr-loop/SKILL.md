@@ -187,6 +187,19 @@ Push after all comments addressed.
 
 #### Step 4.2: Resolve threads
 
+**Every unresolved thread must end the iteration in one of two
+states — no thread may be left silently unhandled:**
+
+- **Resolved** — you addressed it with a code change.
+- **Replied-to** — you answered, deferred, or skipped it (with a
+  reason). A skip still requires a reply explaining why.
+
+After pushing your changes, for **each addressed thread**:
+
+1. **Reply** referencing the commit SHA that addressed it, e.g.
+   `Fixed in <sha>.` Post via `gh api` to the review comment.
+2. **Resolve** the thread via the GraphQL mutation:
+
 ```bash
 gh api graphql -f query='
 mutation($threadId: ID!) {
@@ -196,7 +209,42 @@ mutation($threadId: ID!) {
 }' -f threadId="<thread_node_id>"
 ```
 
-Only resolve threads you actually addressed.
+Only resolve threads you actually addressed. Reply-to (do not
+resolve) threads you answered, deferred, or skipped.
+
+#### Step 4.3: Verify resolution
+
+After resolving, re-query the PR's review threads and confirm
+each thread you resolved now reports `isResolved: true`:
+
+```bash
+gh api graphql -f query='
+query($owner: String!, $repo: String!, $pr: Int!) {
+  repository(owner: $owner, name: $repo) {
+    pullRequest(number: $pr) {
+      reviewThreads(first: 100) {
+        nodes { id isResolved }
+      }
+    }
+  }
+}' -f owner="<owner>" -f repo="<repo>" -F pr=<pr_number>
+```
+
+Retry the resolve mutation for any thread that did not stick.
+**Do not report a thread as resolved without confirming
+`isResolved: true` in this re-query.**
+
+#### Step 4.4: Threads with filtered originals
+
+A thread's original comment may be filtered as untrusted (e.g.
+by `fetch_comments.py`) while a later trusted reply claims a fix
+already landed. Do not resolve on the claim alone:
+
+1. Verify the claimed fix actually exists in the branch — check
+   the referenced commit or the cited code.
+2. If confirmed, reply and resolve the thread (Steps 4.2–4.3).
+3. If not confirmed, leave the thread unresolved and notify the
+   user.
 
 ### Phase 5 — Check, Schedule, or Terminate
 
