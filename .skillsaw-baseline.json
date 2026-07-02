@@ -1,8 +1,24 @@
 {
   "version": "1",
-  "generated_by": "skillsaw 0.14.1",
-  "generated_at": "2026-06-24T00:21:22.247916+00:00",
+  "generated_by": "skillsaw 0.14.0",
+  "generated_at": "2026-07-02T16:56:59.023230+00:00",
   "violations": [
+    {
+      "fingerprint": "cb5b14e20999ffdf",
+      "rule_id": "plugin-readme",
+      "file_path": "plugins/reviews/README.md",
+      "message": "Missing README.md (recommended)",
+      "severity": "warning"
+    },
+    {
+      "fingerprint": "8a556ab9b3119812",
+      "rule_id": "context-budget",
+      "file_path": "plugins/reviews/skills/deep-review/SKILL.md",
+      "message": "Estimated 6,979 tokens exceeds skill error limit of 6,000",
+      "severity": "error",
+      "value": 6979,
+      "baseline_mode": "ceiling"
+    },
     {
       "fingerprint": "7371a0b665795d87",
       "rule_id": "context-budget",
@@ -11,6 +27,110 @@
       "severity": "warning",
       "value": 3055,
       "baseline_mode": "ceiling"
+    },
+    {
+      "fingerprint": "5a7a0222e0cce3d5",
+      "rule_id": "content-weak-language",
+      "file_path": "plugins/reviews/skills/deep-review/SKILL.md",
+      "line": 293,
+      "message": "Weak language (vagueness): 'properly' \u2014 Remove 'properly' \u2014 describe what correct behavior looks like",
+      "severity": "warning"
+    },
+    {
+      "fingerprint": "3723d0af0be379e6",
+      "rule_id": "content-weak-language",
+      "file_path": "plugins/reviews/skills/deep-review/SKILL.md",
+      "line": 357,
+      "message": "Weak language (vagueness): 'correctly' \u2014 Remove 'correctly' \u2014 describe what correct behavior looks like",
+      "severity": "warning"
+    },
+    {
+      "fingerprint": "b282e7ef67afcefc",
+      "rule_id": "content-weak-language",
+      "file_path": "plugins/reviews/skills/deep-review/SKILL.md",
+      "line": 363,
+      "message": "Weak language (vagueness): 'correctly' \u2014 Remove 'correctly' \u2014 describe what correct behavior looks like",
+      "severity": "warning"
+    },
+    {
+      "fingerprint": "da02977f1c071aa3",
+      "rule_id": "content-critical-position",
+      "file_path": "plugins/reviews/skills/deep-review/SKILL.md",
+      "line": 180,
+      "message": "'MUST' instruction at line 175 is in the attention dead zone (20-80%) \u2014 Move to the first 20% or last 20% of the file for better attention",
+      "severity": "warning"
+    },
+    {
+      "fingerprint": "bd78a190f2f9cf8f",
+      "rule_id": "content-critical-position",
+      "file_path": "plugins/reviews/skills/deep-review/SKILL.md",
+      "line": 186,
+      "message": "'MUST' instruction at line 181 is in the attention dead zone (20-80%) \u2014 Move to the first 20% or last 20% of the file for better attention",
+      "severity": "warning"
+    },
+    {
+      "fingerprint": "fd21c95cef229fd3",
+      "rule_id": "content-critical-position",
+      "file_path": "plugins/reviews/skills/deep-review/SKILL.md",
+      "line": 270,
+      "message": "'MUST' instruction at line 265 is in the attention dead zone (20-80%) \u2014 Move to the first 20% or last 20% of the file for better attention",
+      "severity": "warning"
+    },
+    {
+      "fingerprint": "fd21c95cef229fd3",
+      "rule_id": "content-critical-position",
+      "file_path": "plugins/reviews/skills/deep-review/SKILL.md",
+      "line": 307,
+      "message": "'MUST' instruction at line 302 is in the attention dead zone (20-80%) \u2014 Move to the first 20% or last 20% of the file for better attention",
+      "severity": "warning"
+    },
+    {
+      "fingerprint": "fd21c95cef229fd3",
+      "rule_id": "content-critical-position",
+      "file_path": "plugins/reviews/skills/deep-review/SKILL.md",
+      "line": 345,
+      "message": "'MUST' instruction at line 340 is in the attention dead zone (20-80%) \u2014 Move to the first 20% or last 20% of the file for better attention",
+      "severity": "warning"
+    },
+    {
+      "fingerprint": "fd21c95cef229fd3",
+      "rule_id": "content-critical-position",
+      "file_path": "plugins/reviews/skills/deep-review/SKILL.md",
+      "line": 378,
+      "message": "'MUST' instruction at line 373 is in the attention dead zone (20-80%) \u2014 Move to the first 20% or last 20% of the file for better attention",
+      "severity": "warning"
+    },
+    {
+      "fingerprint": "fd21c95cef229fd3",
+      "rule_id": "content-critical-position",
+      "file_path": "plugins/reviews/skills/deep-review/SKILL.md",
+      "line": 407,
+      "message": "'MUST' instruction at line 402 is in the attention dead zone (20-80%) \u2014 Move to the first 20% or last 20% of the file for better attention",
+      "severity": "warning"
+    },
+    {
+      "fingerprint": "fd21c95cef229fd3",
+      "rule_id": "content-critical-position",
+      "file_path": "plugins/reviews/skills/deep-review/SKILL.md",
+      "line": 434,
+      "message": "'MUST' instruction at line 429 is in the attention dead zone (20-80%) \u2014 Move to the first 20% or last 20% of the file for better attention",
+      "severity": "warning"
+    },
+    {
+      "fingerprint": "fd21c95cef229fd3",
+      "rule_id": "content-critical-position",
+      "file_path": "plugins/reviews/skills/deep-review/SKILL.md",
+      "line": 461,
+      "message": "'MUST' instruction at line 456 is in the attention dead zone (20-80%) \u2014 Move to the first 20% or last 20% of the file for better attention",
+      "severity": "warning"
+    },
+    {
+      "fingerprint": "fdf4ceeebfdca527",
+      "rule_id": "content-negative-only",
+      "file_path": "plugins/reviews/skills/deep-review/SKILL.md",
+      "line": 811,
+      "message": "Negative-only instruction without alternative: '- Never use           in the initial review creation payload.'",
+      "severity": "warning"
     }
   ]
 }
