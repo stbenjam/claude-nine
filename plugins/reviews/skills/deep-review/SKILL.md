@@ -145,8 +145,38 @@ to all specialists and the arbiter as context. Specialists should:
 
 ### Phase 2 — Dispatch Specialists
 
-Read [references/specialist-prompts.md](references/specialist-prompts.md)
-for the full prompt for each enabled specialist.
+Each specialist has its own prompt in
+[references/specialists/](references/specialists/):
+
+| Specialist | Prompt |
+|------------|--------|
+| bugs | [references/specialists/bugs.md](references/specialists/bugs.md) |
+| adversarial | [references/specialists/adversarial.md](references/specialists/adversarial.md) |
+| security | [references/specialists/security.md](references/specialists/security.md) |
+| architecture | [references/specialists/architecture.md](references/specialists/architecture.md) |
+| consistency | [references/specialists/consistency.md](references/specialists/consistency.md) |
+| qa | [references/specialists/qa.md](references/specialists/qa.md) |
+| writer | [references/specialists/writer.md](references/specialists/writer.md) |
+
+Append the findings JSON schema to each specialist prompt:
+
+```json
+[
+  {
+    "file": "src/example.py",
+    "line": 42,
+    "severity": "BLOCKING",
+    "title": "Short title",
+    "body": "Description of the issue",
+    "suggestion": "Recommended action or null",
+    "reproducer_needed": true
+  }
+]
+```
+
+**Severity values**: `BLOCKING` | `SUGGESTION` | `NOTE`
+
+If no issues found, return an empty array and state what was checked.
 
 #### Parallel Mode (default)
 
@@ -155,10 +185,13 @@ they run concurrently, using the Agent tool with
 `run_in_background: true`.
 
 Each sub-agent gets:
+- The prompt: "You are a {specialist}. Read
+  references/specialists/{specialist}.md for your review
+  instructions."
 - The merge base ref
 - The PR number or branch name being reviewed
 - Any prior review findings (if detected in Step 1.4)
-- The specialist prompt from `references/specialist-prompts.md`
+- The findings JSON schema above
 
 Sub-agents have full read access to the locally checked-out
 codebase. They explore the code on their own — read files, grep,
@@ -178,10 +211,10 @@ another. Do **not** launch sub-agents for specialist dispatch.
 mode — the no-sub-agent constraint applies only to specialists.)
 
 Then for each specialist in roster order, state the specialist name
-as a heading, review through that lens using the prompt from
-`references/specialist-prompts.md`, and produce findings in the
-same JSON format. Context from earlier specialists' file reads and
-findings carries over automatically.
+as a heading, read `references/specialists/{specialist}.md` for
+review instructions, review through that lens, and produce findings
+in the same JSON format. Context from earlier specialists' file
+reads and findings carries over automatically.
 
 **Do NOT modify any files.** Serial mode is read-only, same as
 parallel.
