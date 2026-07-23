@@ -2,19 +2,34 @@
 
 This phase runs ONLY when `--comment` was passed with a PR identifier.
 
+Before posting, confirm repository coordinates from Step 1.2:
+
+- **GitHub:** `$OWNER`, `$REPO`, `$PR_NUMBER` must be set
+- **GitLab:** `$PROJECT`, `$MR_IID` must be set
+
+If any required value is missing, derive it from the PR/MR URL or
+the matching git remote (`git remote -v`) before continuing. Capture
+any created review ID as `$REVIEW_ID` for later submit/drop steps.
+
 ## Step 6.1: Post as comment
 
 Post the full verdict as a PR comment:
 
 **GitHub:**
 ```bash
-gh pr comment $PR_NUMBER --body "$(cat <<'EOF'
+gh pr comment "$PR_NUMBER" --repo "$OWNER/$REPO" --body "$(cat <<'EOF'
 <verdict content>
 EOF
 )"
 ```
 
-**GitLab:** Use `glab mr comment`.
+**GitLab:**
+```bash
+glab mr note "$MR_IID" --repo "$PROJECT" --message "$(cat <<'EOF'
+<verdict content>
+EOF
+)"
+```
 
 If the comment fails, report the error but still display the verdict
 to the user — the review itself is not lost.
@@ -29,15 +44,21 @@ with inline comments on specific lines:
 
 If the user says no, stop here.
 
-If yes, compute diff positions and create the review:
+If yes, pin the reviewed head SHA and create the review using
+line-based comments (not deprecated `position`):
 
-**GitHub position rules:**
-- The `position` is the 1-based line index in the file's unified
-  diff, where position 1 is the first line AFTER the first `@@`
-  hunk header. `@@` headers are NOT counted.
-- Count every line (context, additions, deletions) sequentially
-  across ALL hunks. Each new `@@` header is skipped in the count.
-- The count does NOT reset between hunks
+```bash
+COMMIT_ID=$(gh api "repos/$OWNER/$REPO/pulls/$PR_NUMBER" --jq '.head.sha')
+```
+
+**GitHub inline comment fields:**
+- Always set `commit_id` to `$COMMIT_ID` (the SHA you reviewed).
+  Omitting it defaults to the current PR head, which can drift if
+  a new push lands between diff calculation and the API call
+- Prefer `path`, `line`, and `side` (`RIGHT` for additions/context
+  on the new file; `LEFT` for deletions)
+- For multi-line comments, also set `start_line` / `start_side`
+- Do **not** use `position` — GitHub is deprecating it
 
 If a finding's line falls outside any diff hunk, skip the inline
 comment and include it in the review body instead.
@@ -46,9 +67,17 @@ comment and include it in the review body instead.
 Omitting it creates a PENDING review.
 
 ```bash
-gh api repos/$OWNER/$REPO/pulls/$PR_NUMBER/reviews \
+gh api "repos/$OWNER/$REPO/pulls/$PR_NUMBER/reviews" \
   --method POST \
-  --input /tmp/deep-review-payload.json
+  --input /tmp/deep-review-payload.json \
+  > /tmp/deep-review-response.json
+```
+
+Capture the created review id (and any comment IDs from this
+attempt only — use those IDs if a 422 requires cleanup/retry):
+
+```bash
+REVIEW_ID=$(jq -r '.id' < /tmp/deep-review-response.json)
 ```
 
 Cap at **30 inline comments**. Overflow goes to the review body.
@@ -95,7 +124,7 @@ Suggestion: {suggestion}
 
 ## Step 6.3: User approval gate
 
-```
+```text
 PENDING review created with N inline comments on PR #NNN.
 
 Commands:
@@ -108,17 +137,17 @@ Commands:
 
 On "submit":
 ```bash
-gh api repos/$OWNER/$REPO/pulls/$PR_NUMBER/reviews/$REVIEW_ID/events \
+gh api "repos/$OWNER/$REPO/pulls/$PR_NUMBER/reviews/$REVIEW_ID/events" \
   --method POST -f event="COMMENT"
 ```
 
 On "request changes":
 ```bash
-gh api repos/$OWNER/$REPO/pulls/$PR_NUMBER/reviews/$REVIEW_ID/events \
+gh api "repos/$OWNER/$REPO/pulls/$PR_NUMBER/reviews/$REVIEW_ID/events" \
   --method POST -f event="REQUEST_CHANGES"
 ```
 
 On "drop":
 ```bash
-gh api -X DELETE repos/$OWNER/$REPO/pulls/$PR_NUMBER/reviews/$REVIEW_ID
+gh api -X DELETE "repos/$OWNER/$REPO/pulls/$PR_NUMBER/reviews/$REVIEW_ID"
 ```
