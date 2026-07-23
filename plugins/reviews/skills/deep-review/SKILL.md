@@ -87,30 +87,13 @@ All are enabled unless excluded with `-`:
 
 #### Step 1.1: Parse arguments
 
-Split the argument string on whitespace. Classify each token:
-
-- `--serial` — enable serial execution mode
-- `--comment` — post verdict as a PR comment after review
-- `--coderabbit` — include CodeRabbit external reviewer
-- `--codex` — include Codex external reviewer
-- A token starting with `-` followed by specialist name(s) (e.g.,
-  `-writer` or `-qa,-writer`) — exclude those specialists. If the
-  token contains commas, split on commas and treat each segment as
-  a separate exclusion. Validate each name against the known
-  specialist roster (bugs, adversarial, security, architecture,
-  consistency, qa, writer). Unknown names are warned and ignored.
-- A **PR URL** (contains `github.com` and `/pull/`, or `gitlab.com`
-  and `/merge_requests/`) or **bare integer** — PR identifier.
-  For a bare integer, determine the platform from the git remote
-  URL: if it contains `github.com`, use `gh`; if it contains
-  `gitlab.com`, use `glab`. If ambiguous, ask the user.
-- Anything else — warn and ignore
-
-If all specialists are excluded, error and exit: "At least one
-specialist must be enabled."
-
-If `--comment` is passed without a PR identifier, error and exit.
-If more than one PR identifier is found, error and exit.
+Split the argument string on whitespace. Flags (`--serial`,
+`--comment`, `--coderabbit`, `--codex`) set modes. Tokens like
+`-writer,-qa` exclude those specialists (validate against the
+roster; unknown names warned and ignored). A PR URL or bare
+integer is the PR identifier (for bare integers, detect platform
+from git remote). Error if: all specialists excluded, `--comment`
+without PR identifier, or multiple PR identifiers.
 
 #### Step 1.2: Check out the PR and determine base ref
 
@@ -236,125 +219,32 @@ continue.
 
 ### Phase 4 — Reproduce
 
-Collect all findings from all specialists.
-
-For every finding where `reproducer_needed` is `true` AND severity
-is `BLOCKING`:
-
-Launch a **reproducer subagent** (up to 5 in parallel, 10 minute
-timeout each). Each gets this prompt:
-
-> Create and execute a minimal reproducer to verify this bug.
->
-> **Finding**: {title} in {file}:{line} — {body}
->
-> **Instructions**:
-> 1. Read the file and surrounding code for full context
-> 2. Design the SMALLEST test case that demonstrates the bug
-> 3. Create the reproducer files (scripts, configs, inputs)
-> 4. Execute it and capture the output
-> 5. Report pass (bug confirmed) or fail (not reproduced)
->
-> **Requirements**:
-> - Must be runnable, not a thought experiment
-> - Must produce a clear pass/fail result
-> - Create ALL reproducer files in /tmp — do not write any files
->   to the working tree
-> - If the bug requires infrastructure you can't create locally,
->   explain why and report `not_reproducible`
-> - Do not run destructive operations
-> - Clean up temp files when done
->
-> Return a JSON object in a fenced `json` block:
-> ```json
-> {
->   "reproduced": "confirmed",
->   "explanation": "What happened",
->   "steps": "Exact commands and files",
->   "expected": "Correct behavior",
->   "actual": "What actually happened (real output)",
->   "files": [{"path": "name", "content": "..."}]
-> }
-> ```
->
-> **`reproduced` values**: `"confirmed"` | `"not_confirmed"` |
-> `"not_reproducible"`
-
-#### Processing results
-
-- `reproduced: "confirmed"` — keep as BLOCKING, attach reproducer
-  details
-- `reproduced: "not_confirmed"` — downgrade severity to
-  `SUGGESTION`, add note: "Reproducer did not confirm this bug —
-  may be a false positive or require conditions not tested."
-- `reproduced: "not_reproducible"` — keep severity, add note
-  explaining why
+For every BLOCKING finding with `reproducer_needed: true`, launch
+a reproducer subagent (up to 5 in parallel). See
+[references/reproducer-prompt.md](references/reproducer-prompt.md)
+for the prompt template and result processing rules.
 
 ### Phase 5 — Panel Arbiter
 
 Perform synthesis directly in the main agent (not a sub-agent).
 
-#### Step 5.1: Deduplicate
-
-Multiple specialists may find the same issue. Merge duplicates,
-keeping the most detailed description and the strongest reproducer.
-
-#### Step 5.2: Filter noise
-
-Remove findings that are:
-- Clearly false positives (contradicted by code the reviewer missed)
-- Style nitpicks that don't match the project's conventions
-- Speculative ("this could be a problem if...") without evidence
-- Already addressed elsewhere in the branch (e.g., in a later commit)
-
-#### Step 5.3: Resolve conflicts
-
-Where specialists disagree, resolve explicitly:
-- Corroboration between specialists strengthens confidence
-- Conflicts require explicit resolution with reasoning
-- Adversarial concerns are blocking unless specifically refuted by
-  another specialist with a concrete technical explanation
-
-#### Step 5.4: Assign disposition
-
-- **APPROVE**: No unresolved BLOCKING findings
-- **REQUEST_CHANGES**: BLOCKING findings that require code changes
-- **NEEDS_DISCUSSION**: Findings that need author input to resolve
-
-**Biases**: Security over ergonomics. Codebase consistency over
-local elegance. Existing patterns over novel ones. Reproduced bugs
-are always BLOCKING. Clean changes with no issues are valid — do
-not manufacture findings.
-
-#### Step 5.5: Prioritize
-
-1. Reproduced bugs with security implications
-2. Reproduced functional bugs
-3. Unreproduced but plausible bugs (downgraded to SUGGESTION)
-4. Architecture/design concerns
-5. Style, consistency, and documentation notes
-
-#### Step 5.6: Emit verdict
-
-Use collapsible `<details>` blocks for specialist findings so the
-output is scannable. Each specialist gets its own collapsed section
-with a severity count summary (e.g., "3 findings: 1 blocking,
-2 suggestions"). Structure:
-
-1. **Disposition** line with qualifier
-2. **Specialist Findings** — collapsed `<details>` with nested
-   per-specialist `<details>`, each containing a findings table
-3. **External Reviewers** — only if requested
-4. **Panel Synthesis** — resolve disagreements, note corroboration
-5. **Required Actions Before Merge** — numbered list with
-   `file:line` pointers and reproducer summaries (or "None.")
-6. **Optional Follow-ups** — suggestions out of scope
-7. **Stats** — findings kept/dropped counts
-8. Footer: `<sub>Generated by [/deep-review](https://github.com/stbenjam/claude-nine/tree/main/plugins/reviews/skills/deep-review)</sub>`
-
-Omit "External Reviewers" section when none were requested.
-For each BLOCKING finding with a reproducer, include a collapsible
-reproducer section showing steps, expected, and actual output.
+1. **Deduplicate** — merge duplicates, keep strongest reproducer
+2. **Filter noise** — remove false positives, style nitpicks,
+   speculative findings, and issues already addressed in the branch
+3. **Resolve conflicts** — corroboration strengthens; adversarial
+   concerns are blocking unless concretely refuted
+4. **Assign disposition** — APPROVE (no BLOCKING), REQUEST_CHANGES
+   (BLOCKING findings), or NEEDS_DISCUSSION (needs author input).
+   Biases: security over ergonomics, consistency over elegance,
+   reproduced bugs are always BLOCKING, do not manufacture findings
+5. **Prioritize** — reproduced security bugs > reproduced functional
+   bugs > unreproduced > architecture > style/docs
+6. **Emit verdict** — use collapsible `<details>` blocks for
+   specialist findings (each specialist collapsed with severity
+   counts). Sections: Disposition, Specialist Findings, Panel
+   Synthesis, Required Actions, Optional Follow-ups, Stats.
+   Footer: `<sub>Generated by [/deep-review](https://github.com/stbenjam/claude-nine/tree/main/plugins/reviews/skills/deep-review)</sub>`.
+   Include collapsible reproducer details for confirmed BLOCKING bugs.
 
 ### Phase 6 — Post to PR (Optional)
 
