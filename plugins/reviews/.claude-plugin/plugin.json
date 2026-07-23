@@ -1,7 +1,7 @@
 {
   "name": "reviews",
   "description": "Multi-agent panel code review with specialist reviewers and runtime reproducers",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "author": {
     "name": "stbenjam"
   }
