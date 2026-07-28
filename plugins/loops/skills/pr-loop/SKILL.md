@@ -68,18 +68,18 @@ then sets up the proper branch tracking inside the worktree.
 If a worktree for this PR already exists (from a previous
 iteration), `cd` into it instead of creating a new one.
 
-#### Step 1.4: Set tmux window and session title
+#### Step 1.4: Set tmux window pane title
 
-If running inside tmux (`$TMUX` is set), update both the window
-and session name to reflect the PR being shepherded:
+If running inside tmux (`$TMUX` is set), update the window pane
+title to reflect the PR being shepherded. Do not rename the tmux
+session — the user controls session naming.
 
 ```bash
-tmux rename-session "PR Loops"
-tmux rename-window "<owner>/<repo>#<pr_number>"
+printf '\033]2;%s\033\\' "<owner>/<repo>#<pr_number>"
 ```
 
-This groups all pr-loop windows under a single `PR Loops`
-session, with each window named after its PR.
+This sets the pane title (visible in `#{pane_title}`) without
+altering the session or window name.
 
 #### Step 1.5: Record start time
 
