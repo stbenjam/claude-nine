@@ -92,6 +92,7 @@ matching file.
 
 **APM** (`microsoft/apm`): See [references/apm.md](references/apm.md)
 **OpenShift / Kubernetes** (`openshift*/*`, `kubernetes*/*`): See [references/openshift.md](references/openshift.md)
+**skillsaw** (`stbenjam/skillsaw`): See [references/skillsaw.md](references/skillsaw.md)
 
 Matching references override the corresponding phases below.
 
