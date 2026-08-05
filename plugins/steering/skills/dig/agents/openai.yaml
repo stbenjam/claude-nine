@@ -1,0 +1,10 @@
+interface:
+  display_name: "Dig"
+  short_description: "Dig deeper into superficial agent work."
+  icon_small: "./assets/icon.svg"
+  icon_large: "./assets/icon.svg"
+  brand_color: "#0E7490"
+  default_prompt: "Use $dig to investigate superficial agent work."
+
+policy:
+  allow_implicit_invocation: false

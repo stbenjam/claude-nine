@@ -1,0 +1,10 @@
+interface:
+  display_name: "Map"
+  short_description: "Explain an implementation's shape and architecture."
+  icon_small: "./assets/icon.svg"
+  icon_large: "./assets/icon.svg"
+  brand_color: "#4338CA"
+  default_prompt: "Use $map to explain the shape of an implementation."
+
+policy:
+  allow_implicit_invocation: false
