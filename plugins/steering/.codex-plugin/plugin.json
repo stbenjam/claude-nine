@@ -1,0 +1,18 @@
+{
+  "name": "steering",
+  "version": "0.1.0",
+  "description": "Compact conversation-steering skills for changing direction, explaining decisions, asking for clarity, tightening prose, executing decisively, and raising frontend quality.",
+  "author": {
+    "name": "stbenjam"
+  },
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Steering",
+    "shortDescription": "Steer the agent with compact, invocable skills.",
+    "longDescription": "Compact skills for redirecting work, explaining decisions, asking clarifying questions, tightening prose, executing decisively, and raising frontend design quality.",
+    "developerName": "stbenjam",
+    "category": "Productivity",
+    "capabilities": [],
+    "defaultPrompt": "Steer the agent's direction, communication style, autonomy, or design quality."
+  }
+}

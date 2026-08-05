@@ -19,6 +19,11 @@
       "source": "./plugins/reviews",
       "description": "Multi-agent panel code review with specialist reviewers and runtime reproducers",
       "version": "0.0.4"
+    },
+    {
+      "name": "steering",
+      "source": "./plugins/steering",
+      "description": "Compact conversation-steering skills for changing direction, explaining decisions, asking for clarity, tightening prose, executing decisively, and raising frontend quality."
     }
   ]
 }

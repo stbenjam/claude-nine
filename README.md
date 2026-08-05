@@ -28,6 +28,7 @@ directories and skills.
 - **books**: Unified Calibre and Goodreads library search, recommendations, series analysis, and statistics
 - **loops**: Autonomous workflows that shepherd work to completion, such as driving a pull request to a mergeable state
 - **reviews**: Multi-agent panel code review with specialist reviewers and runtime reproducers
+- **steering**: Compact skills for changing direction, explaining decisions, asking for clarity, tightening prose, executing decisively, and raising frontend quality
 
 The books plugin uses progressive disclosure: it identifies whether a request
 belongs to Calibre or Goodreads, then loads only the matching backend and

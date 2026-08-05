@@ -1,0 +1,8 @@
+{
+  "name": "steering",
+  "description": "Compact conversation-steering skills for changing direction, explaining decisions, asking for clarity, tightening prose, executing decisively, and raising frontend quality.",
+  "version": "0.1.0",
+  "author": {
+    "name": "stbenjam"
+  }
+}
