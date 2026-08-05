@@ -12,7 +12,7 @@ import subprocess
 import sys
 import time
 
-TRUSTED_ASSOCIATIONS = {"COLLABORATOR", "OWNER", "MEMBER"}
+TRUSTED_ASSOCIATIONS = {"COLLABORATOR", "CONTRIBUTOR", "OWNER", "MEMBER"}
 
 AUTHORIZED_BOTS = {
     "coderabbitai[bot]",
