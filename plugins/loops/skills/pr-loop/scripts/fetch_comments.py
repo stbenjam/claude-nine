@@ -8,6 +8,7 @@ from collaborators, members, owners, and hardcoded bot accounts.
 """
 
 import json
+import re
 import subprocess
 import sys
 import time
@@ -28,6 +29,15 @@ AUTHORIZED_BOTS = {
 }
 
 RATE_LIMIT_SLEEP = 0.3
+
+_HTML_COMMENT_RE = re.compile(r"<!--.*?-->", re.DOTALL)
+_HTML_COMMENT_UNTERMINATED_RE = re.compile(r"<!--.*", re.DOTALL)
+
+
+def strip_html_comments(text):
+    text = _HTML_COMMENT_RE.sub("", text)
+    text = _HTML_COMMENT_UNTERMINATED_RE.sub("", text)
+    return text.strip()
 
 
 def gh_graphql(query, variables=None):
@@ -125,7 +135,7 @@ def fetch_review_threads(owner, repo, pr_number):
                     "node_id": c.get("id"),
                     "author": author,
                     "author_association": assoc,
-                    "body": c.get("body", ""),
+                    "body": strip_html_comments(c.get("body", "")),
                     "path": c.get("path", ""),
                     "line": c.get("line"),
                     "created_at": c.get("createdAt", ""),
@@ -166,7 +176,7 @@ def fetch_issue_comments(owner, repo, pr_number):
             "node_id": c.get("node_id", ""),
             "author": author,
             "author_association": assoc,
-            "body": c.get("body", ""),
+            "body": strip_html_comments(c.get("body", "")),
             "created_at": c.get("created_at", ""),
             "url": c.get("html_url", ""),
         })
