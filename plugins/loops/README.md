@@ -7,7 +7,9 @@ Code, Codex, and standalone Agent Skills setup.
 
 ## Skills
 
-- **pr-loop**: Shepherd a GitHub PR to a mergeable state — merge the base branch when behind, fix CI failures, address review comments from trusted reviewers and authorized bots, resolve threads, and loop until green or idle.
+<!-- BEGIN GENERATED SKILLS -->
+- [`pr-loop`](skills/pr-loop/SKILL.md) — Shepherd a PR: merge base branch, fix CI, address review comments, resolve threads, and monitor until merged.
+<!-- END GENERATED SKILLS -->
 
 ## Usage
 

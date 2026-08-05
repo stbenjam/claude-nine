@@ -29,9 +29,9 @@ Notify the user when:
 - CI failures you cannot fix
 - PR has been merged, or 24h/48h unmerged milestones reached
 
-Use `mcp__notify__notify_user` if available, otherwise fall back
-to native OS notifications (`osascript` on macOS, `notify-send`
-on Linux).
+Check for available tools that can notify the user and use one if present.
+Otherwise, fall back to native OS notifications (`osascript` on macOS,
+`notify-send` on Linux).
 
 ## Procedure
 
