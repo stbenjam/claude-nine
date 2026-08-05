@@ -45,7 +45,7 @@ parallel, 10-minute timeout each). Each gets this prompt:
 - `reproduced: "confirmed"` — keep as BLOCKING, attach reproducer
   details
 - `reproduced: "not_confirmed"` — **keep the original severity**.
-  Add a note that this attempt did not reproduce the bug (may be
+  State that this attempt did not reproduce the bug (may be
   environment-, timing-, or infrastructure-dependent). Route
   uncertain cases to the arbiter for discussion; do **not**
   blanket-downgrade to `SUGGESTION`, since that can incorrectly

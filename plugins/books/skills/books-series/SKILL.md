@@ -6,8 +6,8 @@ user-invocable: true
 
 # Find unfinished series
 
-Read `../books-library/SKILL.md` first to choose the authoritative backend,
-then read `../books-library/references/series.md`.
+Read [`../books-library/SKILL.md`](../books-library/SKILL.md) first to choose the authoritative backend,
+then read [`../books-library/references/series.md`](../books-library/references/series.md).
 
 Find series with at least one read book and at least one unread book. Use the
 selected backend's helper rather than writing an ad hoc parser: the Calibre

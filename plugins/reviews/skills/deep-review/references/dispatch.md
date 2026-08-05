@@ -32,7 +32,7 @@ If no issues found, return an empty array and state what was checked.
 Resolve specialist prompts from the skill directory (repository
 root relative):
 `plugins/reviews/skills/deep-review/references/specialists/{specialist}.md`.
-Prefer that absolute-from-repo-root path over a bare
+Prefer that absolute-from-repository-root path over a bare
 `references/specialists/...` path — agents may not share the
 skill's working directory.
 
@@ -52,7 +52,7 @@ Each sub-agent gets:
 - The findings JSON schema above
 
 Sub-agents have full read access to the locally checked-out
-codebase. They explore the code on their own — read files, grep,
+repository. They explore the repository on their own — read files, grep,
 run git commands, etc. Apply the read-only contract at the top of
 this file.
 

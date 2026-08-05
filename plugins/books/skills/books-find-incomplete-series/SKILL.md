@@ -4,9 +4,13 @@ description: Find incomplete series in a Calibre library and identify the next b
 user-invocable: false
 ---
 
+# Find incomplete series
+
 This is a supporting workflow used by `books-library` for Calibre series
 analysis. It finds series where at least one book is read but the series is not
 complete.
+
+## Run the helper
 
 Run the bundled helper from this skill directory:
 
@@ -19,6 +23,8 @@ The helper will:
 2. Exclude archived books
 3. Identify series where you've read at least one book but haven't finished the entire series
 4. Display the next unread book in each incomplete series
+
+## Report results
 
 Do not replace the helper with a hand-written query. Report its output clearly
 and say when no incomplete series are found.

@@ -2,7 +2,10 @@
 
 This phase runs ONLY when `--comment` was passed with a PR identifier.
 
-Before posting, confirm repository coordinates from Step 1.2:
+**CRITICAL**: Do NOT include an `"event"` field in the JSON payload.
+Omitting it creates a PENDING review.
+
+Before posting, confirm project coordinates from Step 1.2:
 
 - **GitHub:** `$OWNER`, `$REPO`, `$PR_NUMBER` must be set
 - **GitLab:** `$PROJECT`, `$MR_IID` must be set
@@ -62,9 +65,6 @@ COMMIT_ID=$(gh api "repos/$OWNER/$REPO/pulls/$PR_NUMBER" --jq '.head.sha')
 
 If a finding's line falls outside any diff hunk, skip the inline
 comment and include it in the review body instead.
-
-**CRITICAL**: Do NOT include an `"event"` field in the JSON payload.
-Omitting it creates a PENDING review.
 
 ```bash
 gh api "repos/$OWNER/$REPO/pulls/$PR_NUMBER/reviews" \

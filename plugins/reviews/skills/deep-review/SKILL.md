@@ -16,12 +16,12 @@ ahead of its base.
 
 **Two execution modes:**
 
-- **Parallel (default)**: Each specialist runs as a dedicated sub-agent
-  concurrently. Thorough but expensive — each sub-agent independently
-  derives its own view of the codebase.
-- **Serial (`--serial`)**: All specialists run inline in the main agent,
-  one after another. Significantly cheaper because the codebase context
-  is derived once and shared across all specialists. Trade-off: reviews
+- **Parallel (default)**: Run each specialist as a dedicated sub-agent
+  concurrently. This is thorough but expensive because each sub-agent
+  independently derives its own view of the repository.
+- **Serial (`--serial`)**: Run all specialists inline in the main agent,
+  one after another. This is significantly cheaper because the repository
+  context is derived once and shared across all specialists. Trade-off: reviews
   run sequentially, and later specialists can see prior specialists'
   findings (which may bias their analysis).
 
@@ -44,8 +44,8 @@ Examples:
 - `deep-review --serial` — cheaper serial mode
 - `deep-review -qa,-writer` — skip QA and Technical Writer
 - `deep-review --comment 42` — review PR #42, post verdict as comment
-- `deep-review --coderabbit https://github.com/org/repo/pull/42`
-- `deep-review https://gitlab.com/org/repo/-/merge_requests/7`
+- `deep-review --coderabbit https://github.com/org/repository/pull/42`
+- `deep-review https://gitlab.com/org/repository/-/merge_requests/7`
 
 ## Specialist Panel
 

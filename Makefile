@@ -1,6 +1,6 @@
 # Makefile for Claude Code and Codex plugins
 
-SKILLSAW_VERSION := 0.14.1
+SKILLSAW_VERSION := 0.17.0
 CODEX_MARKETPLACE := .agents/plugins/marketplace.json
 
 .PHONY: help

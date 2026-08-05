@@ -1,7 +1,7 @@
 # skillsaw configuration
 # https://github.com/stbenjam/skillsaw
 
-version: "0.14.1"
+version: "0.17.0"
 
 rules:
 
@@ -117,6 +117,11 @@ rules:
   # Update stale skill name references after a rename
   agentskill-rename-refs:
     enabled: auto
+    severity: warning
+
+  # Every bundled skill file should be referenced from SKILL.md
+  agentskill-unreferenced-files:
+    enabled: true
     severity: warning
 
   # Skill description should be meaningful and within length limits
@@ -247,10 +252,25 @@ rules:
     enabled: auto
     severity: info
 
+  # Detect emphasis inflation from too many uppercase directives
+  content-emphasis-density:
+    enabled: true
+    severity: warning
+
   # Check that instruction files are organized into cognitive chunks with headings
   content-cognitive-chunks:
     enabled: auto
     severity: info
+
+  # Detect near-duplicate sections that have drifted apart
+  content-instruction-drift:
+    enabled: true
+    severity: info
+
+  # Detect open-ended loop instructions without a stopping condition
+  content-missing-stop-condition:
+    enabled: true
+    severity: warning
 
   # Detect potential API keys, tokens, and passwords in instruction files
   content-embedded-secrets:
@@ -286,6 +306,31 @@ rules:
   content-placeholder-text:
     enabled: auto
     severity: warning
+
+  # Detect repeated directives within a single file
+  content-repeated-directive:
+    enabled: true
+    severity: warning
+
+  # Detect unclosed Markdown code fences
+  content-unclosed-fence:
+    enabled: true
+    severity: warning
+
+  # Detect long encoded payloads in agent context
+  security-encoded-payload:
+    enabled: true
+    severity: warning
+
+  # Detect directives hidden in HTML comments
+  security-hidden-instructions:
+    enabled: true
+    severity: warning
+
+  # Detect invisible or reordering Unicode characters
+  security-invisible-unicode:
+    enabled: true
+    severity: error
 
   # Flags settings keys that execute arbitrary commands (apiKeyHelper, awsAuthRefresh, awsCredentialExport, gcpAuthRefresh, otelHeadersHelper) and dangerous env vars (LD_PRELOAD, NODE_OPTIONS, proxy settings, GIT_SSH_COMMAND, etc.)
   settings-dangerous:
