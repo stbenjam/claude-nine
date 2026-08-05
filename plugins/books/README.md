@@ -3,6 +3,9 @@
 Search and analyze a book library from either Calibre or a Goodreads CSV
 export. The plugin is shared by Claude Code and Codex.
 
+See the [main installation guide](../../README.md#installation) for Claude
+Code, Codex, and standalone Agent Skills setup.
+
 ## Skill routing
 
 The invocable skills `/books:next`, `/books:random`, `/books:series`,

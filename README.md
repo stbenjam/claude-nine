@@ -6,21 +6,49 @@ Shared skills and plugins for Claude Code and Codex by stbenjam.
 
 ## Installation
 
-Add the Claude marketplace:
+Choose the setup that matches your agent host. All paths below start at the
+root of a checkout of this repository.
+
+### Claude Code
+
+From a Claude Code session, add the marketplace and install the plugin you
+want:
 
 ```
 /plugin marketplace add stbenjam/skills
+/plugin install steering@stbenjam
 ```
 
-Add the Codex marketplace:
+Replace `steering` with `books`, `loops`, or `reviews` as needed, then run
+`/reload-plugins`.
+
+### Codex
+
+Add the marketplace from a shell, then open Codex's plugin browser:
 
 ```
 codex plugin marketplace add stbenjam/skills
+codex
+/plugins
 ```
 
-The repository has one Codex-compatible plugin catalog at
-`.agents/plugins/marketplace.json`. Claude Code continues to use
-`.claude-plugin/marketplace.json`; both catalogs point at the same plugin
+Select the plugin to install, then start a new Codex session. The repository's
+Codex catalog is `.agents/plugins/marketplace.json`.
+
+### Standalone Agent Skills
+
+Copy any skill directory into `.agents/skills`:
+
+```
+mkdir -p .agents/skills
+cp -R plugins/steering/skills/nah .agents/skills/
+```
+
+Replace `steering/skills/nah` with the plugin and skill you want; each copied
+directory must contain its `SKILL.md` file.
+
+Claude Code uses `.claude-plugin/marketplace.json`, while Codex uses
+`.agents/plugins/marketplace.json`; both catalogs point at the same plugin
 directories and skills.
 
 ## Plugins

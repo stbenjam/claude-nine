@@ -2,6 +2,9 @@
 
 Autonomous loops that shepherd work to completion.
 
+See the [main installation guide](../../README.md#installation) for Claude
+Code, Codex, and standalone Agent Skills setup.
+
 ## Skills
 
 - **pr-loop**: Shepherd a GitHub PR to a mergeable state — merge the base branch when behind, fix CI failures, address review comments from trusted reviewers and authorized bots, resolve threads, and loop until green or idle.
