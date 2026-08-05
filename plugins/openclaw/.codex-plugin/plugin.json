@@ -1,0 +1,18 @@
+{
+  "name": "openclaw",
+  "version": "0.0.1",
+  "description": "A grab-bag of miscellaneous OpenClaw skills stbenjam uses day to day, with no unifying theme.",
+  "author": {
+    "name": "stbenjam"
+  },
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "OpenClaw Misc",
+    "shortDescription": "A grab-bag of miscellaneous OpenClaw skills, with no unifying theme.",
+    "longDescription": "A miscellaneous dump of unrelated OpenClaw skills stbenjam uses day to day: pollen forecasts, Orangetheory workout lookups, and narrated video reels. No unifying theme.",
+    "developerName": "stbenjam",
+    "category": "Productivity",
+    "capabilities": [],
+    "defaultPrompt": "Help me use one of the OpenClaw skills."
+  }
+}

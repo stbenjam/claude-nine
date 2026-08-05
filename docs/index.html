@@ -390,6 +390,12 @@ footer a { color: var(--primary); }
       "commands": [],
       "skills": [
         {
+          "name": "books-acquirer",
+          "description": "Acquire named books via library borrow/hold/download first, then explicit retailer purchase; use for get, hold, borrow, buy, or EPUB requests.",
+          "description_html": "Acquire named books via library borrow/hold/download first, then explicit retailer purchase; use for get, hold, borrow, buy, or EPUB requests.",
+          "meta": ""
+        },
+        {
           "name": "books-analyze-goodreads-export",
           "description": "Load and query a Goodreads CSV export as the Goodreads backend for the books-library skill.",
           "description_html": "Load and query a Goodreads CSV export as the Goodreads backend for the books-library skill.",
@@ -423,6 +429,12 @@ footer a { color: var(--primary); }
           "name": "books-random",
           "description": "Pick a random book from a Calibre library or Goodreads export, honoring the user's requested pool and filters.",
           "description_html": "Pick a random book from a Calibre library or Goodreads export, honoring the user&#x27;s requested pool and filters.",
+          "meta": ""
+        },
+        {
+          "name": "books-release-scout",
+          "description": "Read-only new-release book recommendations from Calibre ratings with current library availability and retailer pricing; use for book scouting.",
+          "description_html": "Read-only new-release book recommendations from Calibre ratings with current library availability and retailer pricing; use for book scouting.",
           "meta": ""
         },
         {
@@ -460,6 +472,37 @@ footer a { color: var(--primary); }
           "name": "pr-loop",
           "description": "Shepherd a PR: merge base branch, fix CI, address review comments, resolve threads, and monitor until merged.",
           "description_html": "Shepherd a PR: merge base branch, fix CI, address review comments, resolve threads, and monitor until merged.",
+          "meta": ""
+        }
+      ],
+      "agents": [],
+      "hooks": [],
+      "mcp_servers": [],
+      "rules": []
+    },
+    {
+      "name": "openclaw",
+      "description": "A grab-bag of miscellaneous OpenClaw skills stbenjam uses day to day, with no unifying theme.",
+      "version": "0.0.1",
+      "has_readme": true,
+      "commands": [],
+      "skills": [
+        {
+          "name": "make-a-movie",
+          "description": "Create dynamic, narrated, music-backed, friend-shareable reels with polished motion and audio mixing.",
+          "description_html": "Create dynamic, narrated, music-backed, friend-shareable reels with polished motion and audio mixing.",
+          "meta": ""
+        },
+        {
+          "name": "orangetheory-workout",
+          "description": "Look up Orangetheory Fitness daily workout summaries. Use when asked about today's or tomorrow's Orangetheory, OTF, or orange theory workout.",
+          "description_html": "Look up Orangetheory Fitness daily workout summaries. Use when asked about today&#x27;s or tomorrow&#x27;s Orangetheory, OTF, or orange theory workout.",
+          "meta": ""
+        },
+        {
+          "name": "pollen-counts",
+          "description": "Get current and forecast pollen counts for a US ZIP code. Use when asked about pollen, allergens, or allergy/pollen forecasts for a US location.",
+          "description_html": "Get current and forecast pollen counts for a US ZIP code. Use when asked about pollen, allergens, or allergy/pollen forecasts for a US location.",
           "meta": ""
         }
       ],
