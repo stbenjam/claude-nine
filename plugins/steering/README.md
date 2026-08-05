@@ -9,3 +9,5 @@ brevity, execution, and frontend quality in Claude Code and Codex.
 - `/cut` — make the response terser without losing substance
 - `/lfg` — implement using reasonable defaults without unnecessary questions
 - `/wow` — raise a frontend redesign to an award-worthy bar
+
+Inspired by [`bro` from dmmulroy/skills](https://github.com/dmmulroy/skills/blob/main/bro/SKILL.md).

@@ -38,10 +38,6 @@ The Books plugin provides these invocable skills:
 `/books:next`, `/books:random`, `/books:series`, `/books:stats`, and
 `/books:vibes`.
 
-## Credits
-
-The compact steering-skill pattern is inspired by [`bro` from dmmulroy/skills](https://github.com/dmmulroy/skills/blob/main/bro/SKILL.md).
-
 ## Development
 
 Lint plugins and skills with [skillsaw](https://skillsaw.org/) in strict mode:
