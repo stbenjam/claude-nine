@@ -2,5 +2,5 @@
   <rect width="128" height="128" rx="28" fill="#F59E0B"/>
   <circle cx="20" cy="24" r="8" fill="#fff" opacity=".35"/>
   <circle cx="108" cy="104" r="12" fill="#fff" opacity=".22"/>
-  <text x="64" y="79" text-anchor="middle" font-size="48" font-family="Apple Color Emoji, Segoe UI Emoji, Noto Color Emoji, sans-serif">🛒📚</text>
+  <text x="64" y="79" text-anchor="middle" font-size="56" font-family="Apple Color Emoji, Segoe UI Emoji, Noto Color Emoji, sans-serif">🛒</text>
 </svg>
