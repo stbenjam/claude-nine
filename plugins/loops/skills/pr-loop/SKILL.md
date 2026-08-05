@@ -90,6 +90,7 @@ Record current UTC timestamp for backoff schedule calculations.
 Match `<owner>/<repository>` against patterns below. Only read the
 matching file.
 
+**APM** (`microsoft/apm`): See [references/apm.md](references/apm.md)
 **OpenShift / Kubernetes** (`openshift*/*`, `kubernetes*/*`): See [references/openshift.md](references/openshift.md)
 **skillsaw** (`stbenjam/skillsaw`): See [references/skillsaw.md](references/skillsaw.md)
 
