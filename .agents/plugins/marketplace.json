@@ -1,0 +1,44 @@
+{
+  "name": "stbenjam",
+  "interface": {
+    "displayName": "stbenjam's skills"
+  },
+  "plugins": [
+    {
+      "name": "books",
+      "source": {
+        "source": "local",
+        "path": "./plugins/books"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    },
+    {
+      "name": "loops",
+      "source": {
+        "source": "local",
+        "path": "./plugins/loops"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Developer Tools"
+    },
+    {
+      "name": "reviews",
+      "source": {
+        "source": "local",
+        "path": "./plugins/reviews"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Developer Tools"
+    }
+  ]
+}

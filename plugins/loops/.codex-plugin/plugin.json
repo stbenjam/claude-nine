@@ -1,0 +1,21 @@
+{
+  "name": "loops",
+  "version": "0.0.3",
+  "description": "Autonomous workflows that shepherd GitHub pull requests toward a mergeable state.",
+  "author": {
+    "name": "stbenjam"
+  },
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Loops",
+    "shortDescription": "Shepherd pull requests toward merge.",
+    "longDescription": "Run a bounded workflow that keeps a pull request current, addresses feedback, fixes CI, and monitors progress.",
+    "developerName": "stbenjam",
+    "category": "Developer Tools",
+    "capabilities": [
+      "Read",
+      "Write"
+    ],
+    "defaultPrompt": "Shepherd this pull request until it is mergeable."
+  }
+}

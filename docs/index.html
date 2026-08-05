@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>claude-nine</title>
+  <title>stbenjam&#x27;s skills</title>
   <style>:root {
     --primary: #6366f1;
     --primary-dark: #4f46e5;
@@ -352,7 +352,7 @@ footer a { color: var(--primary); }
     <div class="navbar-content">
       <div class="navbar-brand">
         <a class="navbar-home" onclick="goHome()">
-          <h1>claude-nine</h1>
+          <h1>stbenjam&#x27;s skills</h1>
           <p class="subtitle">Marketplace</p>
         </a>
         <div class="navbar-stats" id="navbar-stats"></div>
@@ -384,214 +384,63 @@ footer a { color: var(--primary); }
   "plugins": [
     {
       "name": "books",
-      "description": "TODO: Add description",
-      "version": "0.0.1",
-      "has_readme": true,
-      "commands": [
-        {
-          "name": "next",
-          "full_name": "",
-          "description": "Analyze my reading patterns and suggest what to read next from my TBR",
-          "description_html": "Analyze my reading patterns and suggest what to read next from my TBR",
-          "synopsis": "",
-          "body_html": ""
-        },
-        {
-          "name": "random",
-          "full_name": "",
-          "description": "Pick a random book from TBR or library",
-          "description_html": "Pick a random book from TBR or library",
-          "synopsis": "",
-          "body_html": ""
-        },
-        {
-          "name": "series",
-          "full_name": "",
-          "description": "List unfinished series and the next book to read in each",
-          "description_html": "List unfinished series and the next book to read in each",
-          "synopsis": "",
-          "body_html": ""
-        },
-        {
-          "name": "stats",
-          "full_name": "",
-          "description": "Show reading statistics (books per year/month, pages read, average rating, genre breakdown)",
-          "description_html": "Show reading statistics (books per year/month, pages read, average rating, genre breakdown)",
-          "synopsis": "",
-          "body_html": ""
-        },
-        {
-          "name": "vibes",
-          "full_name": "",
-          "description": "Find similar books in your library based on genre, author, or themes",
-          "description_html": "Find similar books in your library based on genre, author, or themes",
-          "synopsis": "",
-          "body_html": ""
-        }
-      ],
-      "skills": [
-        {
-          "name": "calibre",
-          "description": "Search and query Calibre library databases. Use when the user asks about books, TBR (to-be-read), reading lists, Calibre library queries, book searches, or mentions Calibre. Also use for queries about book ratings, authors, reading status, or library statistics.",
-          "description_html": "Search and query Calibre library databases. Use when the user asks about books, TBR (to-be-read), reading lists, Calibre library queries, book searches, or mentions Calibre. Also use for queries about book ratings, authors, reading status, or library statistics.",
-          "meta": ""
-        },
-        {
-          "name": "find-incomplete-series",
-          "description": "Find incomplete series in your Calibre library and identify the next book to read in each series.",
-          "description_html": "Find incomplete series in your Calibre library and identify the next book to read in each series.",
-          "meta": ""
-        }
-      ],
-      "agents": [],
-      "hooks": [],
-      "mcp_servers": [],
-      "rules": []
-    },
-    {
-      "name": "calendar",
-      "description": "macOS Calendar integration via icalBuddy and AppleScript",
-      "version": "0.0.1",
-      "has_readme": true,
-      "commands": [
-        {
-          "name": "create",
-          "full_name": "",
-          "description": "Create a new calendar event",
-          "description_html": "Create a new calendar event",
-          "synopsis": "",
-          "body_html": ""
-        },
-        {
-          "name": "today",
-          "full_name": "",
-          "description": "Show today's calendar events",
-          "description_html": "Show today&#x27;s calendar events",
-          "synopsis": "",
-          "body_html": ""
-        },
-        {
-          "name": "tomorrow",
-          "full_name": "",
-          "description": "Show tomorrow's calendar events",
-          "description_html": "Show tomorrow&#x27;s calendar events",
-          "synopsis": "",
-          "body_html": ""
-        },
-        {
-          "name": "week",
-          "full_name": "",
-          "description": "Show this week's calendar events",
-          "description_html": "Show this week&#x27;s calendar events",
-          "synopsis": "",
-          "body_html": ""
-        }
-      ],
-      "skills": [
-        {
-          "name": "calendar",
-          "description": "Query and manage macOS Calendar events. Use when the user asks about calendar events, appointments, schedules, or wants to create/modify calendar entries.",
-          "description_html": "Query and manage macOS Calendar events. Use when the user asks about calendar events, appointments, schedules, or wants to create/modify calendar entries.",
-          "meta": ""
-        }
-      ],
-      "agents": [],
-      "hooks": [],
-      "mcp_servers": [],
-      "rules": []
-    },
-    {
-      "name": "finances",
-      "description": "Manage HSA receipts and financial documents",
-      "version": "0.0.1",
-      "has_readme": true,
-      "commands": [
-        {
-          "name": "add-hsa-receipt",
-          "full_name": "finances:add-hsa-receipt",
-          "description": "Process and file an HSA receipt",
-          "description_html": "Process and file an HSA receipt",
-          "synopsis": "/add-hsa-receipt \u003cpath-to-receipt\u003e",
-          "body_html": "\u003cp\u003eProcess an HSA receipt file by extracting transaction details and organizing it for tax records.\u003c/p\u003e\u003cp\u003eThe command will:\u003cbr\u003e1. Read the receipt file (PDF, image, or other format)\u003cbr\u003e2. Extract transaction date, description, and amount using AI\u003cbr\u003e3. Create a year-based directory in the current working directory\u003cbr\u003e4. Maintain a CSV records file tracking all receipts\u003cbr\u003e5. Copy and rename the receipt file for organized storage\u003c/p\u003e"
-        }
-      ],
-      "skills": [],
-      "agents": [],
-      "hooks": [],
-      "mcp_servers": [],
-      "rules": []
-    },
-    {
-      "name": "git",
-      "description": "Git workflow automation and utilities",
+      "description": "Search and analyze a Calibre library or Goodreads export, including reading lists, series, statistics, and recommendations.",
       "version": "0.0.1",
       "has_readme": true,
       "commands": [],
       "skills": [
         {
-          "name": "review-queue",
-          "description": "Generate a report of GitHub pull requests that need review attention. Use when the user asks about their PR review queue, which PRs need reviewing, the status of their open PRs across repositories, or invokes /git:review-queue.",
-          "description_html": "Generate a report of GitHub pull requests that need review attention. Use when the user asks about their PR review queue, which PRs need reviewing, the status of their open PRs across repositories, or invokes /git:review-queue.",
+          "name": "analyze-goodreads-export",
+          "description": "Load and query a Goodreads CSV export as the Goodreads backend for the book-library skill.",
+          "description_html": "Load and query a Goodreads CSV export as the Goodreads backend for the book-library skill.",
           "meta": ""
-        }
-      ],
-      "agents": [],
-      "hooks": [],
-      "mcp_servers": [],
-      "rules": []
-    },
-    {
-      "name": "goodreads",
-      "description": "TODO: Add description",
-      "version": "0.0.1",
-      "has_readme": true,
-      "commands": [
+        },
+        {
+          "name": "book-library",
+          "description": "Search, analyze, and recommend books from either a Calibre library or a Goodreads CSV export.",
+          "description_html": "Search, analyze, and recommend books from either a Calibre library or a Goodreads CSV export.",
+          "meta": ""
+        },
+        {
+          "name": "calibre",
+          "description": "Supporting Calibre backend for the book-library skill; use it after that skill selects Calibre as the data source.",
+          "description_html": "Supporting Calibre backend for the book-library skill; use it after that skill selects Calibre as the data source.",
+          "meta": ""
+        },
+        {
+          "name": "find-incomplete-series",
+          "description": "Find incomplete series in a Calibre library and identify the next book to read in each series.",
+          "description_html": "Find incomplete series in a Calibre library and identify the next book to read in each series.",
+          "meta": ""
+        },
         {
           "name": "next",
-          "full_name": "",
-          "description": "Analyze my reading patterns and suggest what to read next from my TBR",
-          "description_html": "Analyze my reading patterns and suggest what to read next from my TBR",
-          "synopsis": "",
-          "body_html": ""
+          "description": "Analyze reading patterns and recommend what to read next from a Calibre library or Goodreads export.",
+          "description_html": "Analyze reading patterns and recommend what to read next from a Calibre library or Goodreads export.",
+          "meta": ""
         },
         {
           "name": "random",
-          "full_name": "",
-          "description": "Pick a random book from TBR or library",
-          "description_html": "Pick a random book from TBR or library",
-          "synopsis": "",
-          "body_html": ""
+          "description": "Pick a random book from a Calibre library or Goodreads export, honoring the user's requested pool and filters.",
+          "description_html": "Pick a random book from a Calibre library or Goodreads export, honoring the user&#x27;s requested pool and filters.",
+          "meta": ""
         },
         {
           "name": "series",
-          "full_name": "",
-          "description": "List unfinished series and the next book to read in each",
-          "description_html": "List unfinished series and the next book to read in each",
-          "synopsis": "",
-          "body_html": ""
+          "description": "List unfinished book series and the next unread book from a Calibre library or Goodreads export.",
+          "description_html": "List unfinished book series and the next unread book from a Calibre library or Goodreads export.",
+          "meta": ""
         },
         {
           "name": "stats",
-          "full_name": "",
-          "description": "Show reading statistics (books per year/month, pages read, average rating, genre breakdown)",
-          "description_html": "Show reading statistics (books per year/month, pages read, average rating, genre breakdown)",
-          "synopsis": "",
-          "body_html": ""
+          "description": "Show reading statistics from a Calibre library or Goodreads export, including pace, pages, ratings, authors, series, and TBR.",
+          "description_html": "Show reading statistics from a Calibre library or Goodreads export, including pace, pages, ratings, authors, series, and TBR.",
+          "meta": ""
         },
         {
           "name": "vibes",
-          "full_name": "",
-          "description": "Find similar books in your library based on genre, author, or themes",
-          "description_html": "Find similar books in your library based on genre, author, or themes",
-          "synopsis": "",
-          "body_html": ""
-        }
-      ],
-      "skills": [
-        {
-          "name": "analyze-goodreads-export",
-          "description": "Search and query Goodreads library from CSV export. Use when the user asks about books, TBR (to-be-read), reading lists, book searches, or mentions Goodreads. Also use for queries about book ratings, authors, reading status, or library statistics.",
-          "description_html": "Search and query Goodreads library from CSV export. Use when the user asks about books, TBR (to-be-read), reading lists, book searches, or mentions Goodreads. Also use for queries about book ratings, authors, reading status, or library statistics.",
+          "description": "Find books with similar authors, series, themes, shelves, length, or ratings in a Calibre library or Goodreads export.",
+          "description_html": "Find books with similar authors, series, themes, shelves, length, or ratings in a Calibre library or Goodreads export.",
           "meta": ""
         }
       ],
@@ -603,14 +452,33 @@ footer a { color: var(--primary); }
     {
       "name": "loops",
       "description": "Autonomous loops that shepherd work to completion, such as driving a PR to a mergeable state",
-      "version": "0.0.1",
+      "version": "0.0.3",
       "has_readme": true,
       "commands": [],
       "skills": [
         {
           "name": "pr-loop",
-          "description": "Shepherd a PR to mergeable state: merge base branch, fix CI, address review comments, resolve threads, and loop until green and approved.",
-          "description_html": "Shepherd a PR to mergeable state: merge base branch, fix CI, address review comments, resolve threads, and loop until green and approved.",
+          "description": "Shepherd a PR: merge base branch, fix CI, address review comments, resolve threads, and monitor until merged.",
+          "description_html": "Shepherd a PR: merge base branch, fix CI, address review comments, resolve threads, and monitor until merged.",
+          "meta": ""
+        }
+      ],
+      "agents": [],
+      "hooks": [],
+      "mcp_servers": [],
+      "rules": []
+    },
+    {
+      "name": "reviews",
+      "description": "Multi-agent panel code review with specialist reviewers and runtime reproducers",
+      "version": "0.0.4",
+      "has_readme": false,
+      "commands": [],
+      "skills": [
+        {
+          "name": "deep-review",
+          "description": "Use when a deeper level of code review is requested. Multi-agent panel code review with specialist reviewers and forced runtime reproducers for all BLOCKING bug findings. Optionally posts to GitHub/GitLab as a PENDING review.",
+          "description_html": "Use when a deeper level of code review is requested. Multi-agent panel code review with specialist reviewers and forced runtime reproducers for all BLOCKING bug findings. Optionally posts to GitHub/GitLab as a PENDING review.",
           "meta": ""
         }
       ],

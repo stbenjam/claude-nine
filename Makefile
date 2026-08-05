@@ -1,6 +1,7 @@
-# Makefile for Claude Code Marketplace
+# Makefile for Claude Code and Codex plugins
 
 SKILLSAW_VERSION := 0.14.1
+CODEX_MARKETPLACE := .agents/plugins/marketplace.json
 
 .PHONY: help
 help: ## Show this help message
@@ -17,7 +18,7 @@ lint-fix: ## Apply skillsaw autofixes
 
 .PHONY: docs
 docs: ## Generate plugin/skill documentation to docs/index.html
-	uvx skillsaw==$(SKILLSAW_VERSION) docs --format html -o docs/index.html --title "claude-nine"
+	uvx skillsaw==$(SKILLSAW_VERSION) docs --format html -o docs/index.html --title "stbenjam's skills"
 
 .PHONY: new-plugin
 new-plugin: ## Create a new plugin (usage: make new-plugin NAME=my-plugin)
@@ -26,20 +27,13 @@ new-plugin: ## Create a new plugin (usage: make new-plugin NAME=my-plugin)
 		exit 1; \
 	fi
 	@echo "Creating new plugin: $(NAME)..."
-	@mkdir -p plugins/$(NAME)/{.claude-plugin,commands,skills}
-	@echo '{\n  "name": "$(NAME)",\n  "description": "TODO: Add description",\n  "version": "0.0.1",\n  "author": {\n    "name": "TODO: Add author"\n  }\n}' > plugins/$(NAME)/.claude-plugin/plugin.json
-	@echo '---\ndescription: Example command\n---\n\n## Name\n$(NAME):example\n\n## Synopsis\n```\n/$(NAME):example\n```\n\n## Description\nTODO: Add description\n\n## Implementation\n1. TODO: Add implementation steps\n\n## Return Value\nTODO: Describe output' > plugins/$(NAME)/commands/example.md
-	@echo "# $(NAME)\n\nTODO: Add plugin description" > plugins/$(NAME)/README.md
-	@echo "Adding plugin to marketplace.json..."
-	@python3 -c "import json; \
-		f = open('.claude-plugin/marketplace.json', 'r'); \
-		data = json.load(f); \
-		f.close(); \
-		data['plugins'].append({'name': '$(NAME)', 'source': './plugins/$(NAME)', 'description': 'TODO: Add description'}); \
-		f = open('.claude-plugin/marketplace.json', 'w'); \
-		json.dump(data, f, indent=2); \
-		f.close()"
+	@mkdir -p plugins/$(NAME)/{.claude-plugin,.codex-plugin,skills/$(NAME)}
+	@python3 -c "import json; from pathlib import Path; name='$(NAME)'; description='Reusable $(NAME) workflows.'; root=Path('plugins')/name; claude={'name': name, 'description': description, 'version': '0.1.0', 'author': {'name': 'stbenjam'}}; codex={'name': name, 'version': '0.1.0', 'description': description, 'author': {'name': 'stbenjam'}, 'skills': './skills/', 'interface': {'displayName': name.replace('-', ' ').title(), 'shortDescription': description, 'longDescription': description, 'developerName': 'stbenjam', 'category': 'Productivity', 'capabilities': [], 'defaultPrompt': 'Help me use this plugin.'}}; (root/'.claude-plugin/plugin.json').write_text(json.dumps(claude, indent=2)+'\\n'); (root/'.codex-plugin/plugin.json').write_text(json.dumps(codex, indent=2)+'\\n')"
+	@printf '%s\n' '---' 'name: $(NAME)' 'description: Reusable $(NAME) workflows.' '---' '' '# $(NAME)' '' 'Follow the workflow for this plugin.' > plugins/$(NAME)/skills/$(NAME)/SKILL.md
+	@printf '%s\n' '# $(NAME)' '' 'Reusable Claude Code and Codex workflows.' > plugins/$(NAME)/README.md
+	@echo "Adding $(NAME) to both marketplace catalogs..."
+	@python3 -c "import json; from pathlib import Path; name='$(NAME)'; description='Reusable $(NAME) workflows.'; claude_path=Path('.claude-plugin/marketplace.json'); claude=json.loads(claude_path.read_text()); claude['plugins'].append({'name': name, 'source': './plugins/'+name, 'description': description}); claude_path.write_text(json.dumps(claude, indent=2)+'\\n'); codex_path=Path('$(CODEX_MARKETPLACE)'); codex=json.loads(codex_path.read_text()); codex['plugins'].append({'name': name, 'source': {'source': 'local', 'path': './plugins/'+name}, 'policy': {'installation': 'AVAILABLE', 'authentication': 'ON_INSTALL'}, 'category': 'Productivity'}); codex_path.write_text(json.dumps(codex, indent=2)+'\\n')"
 	@echo "✓ Created plugin: $(NAME)"
-	@echo "✓ Added to marketplace.json"
+	@echo "✓ Added to Claude and Codex marketplace catalogs"
 
 .DEFAULT_GOAL := help

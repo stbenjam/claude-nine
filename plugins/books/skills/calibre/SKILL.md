@@ -1,6 +1,7 @@
 ---
 name: calibre
-description: Search and query Calibre library databases. Use when the user asks about books, TBR (to-be-read), reading lists, Calibre library queries, book searches, or mentions Calibre. Also use for queries about book ratings, authors, reading status, or library statistics.
+description: Supporting Calibre backend for the book-library skill; use it after that skill selects Calibre as the data source.
+user-invocable: false
 ---
 
 # Calibre Library Search Skill

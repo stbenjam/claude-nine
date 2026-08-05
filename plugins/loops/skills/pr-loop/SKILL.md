@@ -12,7 +12,7 @@ when ready, and monitors with exponential backoff up to 1 week.
 
 ## Arguments
 
-`/pr-loop [pr-url]` — full GitHub PR URL. If omitted, detects
+`pr-loop [pr-url]` — full GitHub PR URL. If omitted, detects
 from current branch.
 
 ## Prerequisites
@@ -336,5 +336,5 @@ When you learn something new during a run:
 - **Repo-specific**: create/update a file in `<skill-dir>/references/`
 - **Process**: update SKILL.md directly
 
-Submit as a PR to `https://github.com/stbenjam/claude-nine`
+Submit as a PR to `https://github.com/stbenjam/skills`
 targeting `plugins/loops/skills/pr-loop/`.
