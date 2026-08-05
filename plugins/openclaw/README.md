@@ -11,11 +11,11 @@ Code, Codex, and standalone Agent Skills setup.
 
 ## Skills
 
-- **make-a-movie**: Create dynamic, narrated, music-backed, share-friendly
-  vertical video reels with polished motion and audio mixing.
-- **orangetheory-workout**: Look up the daily Orangetheory Fitness (OTF)
-  workout summary from Reddit, with an OTFInsider fallback.
-- **pollen-counts**: Get current and forecast pollen levels for a US ZIP code.
+<!-- BEGIN GENERATED SKILLS -->
+- [`make-a-movie`](skills/make-a-movie/SKILL.md) — Create dynamic, narrated, music-backed, friend-shareable reels with polished motion and audio mixing.
+- [`orangetheory-workout`](skills/orangetheory-workout/SKILL.md) — Look up Orangetheory Fitness daily workout summaries. Use when asked about today's or tomorrow's Orangetheory, OTF, or orange theory workout.
+- [`pollen-counts`](skills/pollen-counts/SKILL.md) — Get current and forecast pollen counts for a US ZIP code. Use when asked about pollen, allergens, or allergy/pollen forecasts for a US location.
+<!-- END GENERATED SKILLS -->
 
 ## Notes
 

@@ -24,14 +24,19 @@ docs: ## Generate plugin/skill documentation to docs/index.html
 plugin-table: ## Generate the README plugin table from the marketplace catalogs
 	@python3 scripts/generate_plugin_table.py
 
+.PHONY: plugin-readmes
+plugin-readmes: ## Generate skill lists in plugin READMEs
+	@python3 scripts/generate_plugin_readmes.py
+
 .PHONY: sync-skills
 sync-skills: ## Refresh root skills/ symlinks from plugin skills
 	@python3 scripts/sync_skills.py
 
 .PHONY: update
-update: ## Regenerate documentation, the README plugin table, and root skill symlinks
+update: ## Regenerate documentation, README content, and root skill symlinks
 	@$(MAKE) docs
 	@$(MAKE) plugin-table
+	@$(MAKE) plugin-readmes
 	@$(MAKE) sync-skills
 
 .PHONY: new-plugin
