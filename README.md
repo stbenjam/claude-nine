@@ -6,11 +6,10 @@ Shared skills and plugins for Claude Code and Codex by stbenjam.
 
 ## Contents
 
-- [Plugins](#plugins)
-- [Installation](#installation)
+  - [Plugins](#plugins)
+  - [Installation](#installation)
   - [Claude Code](#claude-code)
   - [Codex](#codex)
-  - [Standalone Agent Skills](#standalone-agent-skills)
   - [Other Agents](#other-agents)
 - [Development](#development)
 - [License](#license)
@@ -54,35 +53,22 @@ codex
 Select the plugin to install, then start a new Codex session. The repository's
 Codex catalog is `.agents/plugins/marketplace.json`.
 
-### Standalone Agent Skills
+### Other Agents
 
-The root `skills/` directory contains symlinks to every plugin skill. Refresh
-it and regenerate the documentation after adding or removing plugin skills:
+Install all skills:
 
 ```
-make update
+npx skills install stbenjam/skills
 ```
 
-Then copy any skill directory into `.agents/skills`:
+Or copy one into `.agents/skills`:
 
 ```
 mkdir -p .agents/skills
 cp -RL skills/git-rules .agents/skills/
 ```
 
-Each symlink points to a plugin skill directory containing its `SKILL.md` file.
-
-Claude Code uses `.claude-plugin/marketplace.json`, while Codex uses
-`.agents/plugins/marketplace.json`; both catalogs point at the same plugin
-directories and skills.
-
-### Other Agents
-
-Install the repository's skills with the `skills` CLI:
-
-```
-npx skills install stbenjam/skills
-```
+Run `make update` after adding or removing plugin skills to refresh links and docs.
 
 ## Development
 
