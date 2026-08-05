@@ -17,4 +17,5 @@ jobs:
           persist-credentials: false
       - uses: stbenjam/skillsaw@d6af3903cb95810dd097d6fbbc91fb40a0f2207c # v0
         with:
+          version: 0.17.0
           strict: true

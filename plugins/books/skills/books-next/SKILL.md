@@ -6,8 +6,8 @@ user-invocable: true
 
 # Recommend what to read next
 
-Read `../books-library/SKILL.md` first to choose the authoritative backend,
-then read `../books-library/references/recommendations.md`.
+Read [`../books-library/SKILL.md`](../books-library/SKILL.md) first to choose the authoritative backend,
+then read [`../books-library/references/recommendations.md`](../books-library/references/recommendations.md).
 
 Analyze the last 15 books read in the selected library, using the backend's
 actual reading-date field. Look for series continuity, recent page-count

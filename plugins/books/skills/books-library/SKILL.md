@@ -20,8 +20,8 @@ the conversation only loads the instructions and data source it needs.
 
 After choosing, read only the matching backend skill:
 
-- Calibre: `../books-calibre/SKILL.md`
-- Goodreads: `../books-analyze-goodreads-export/SKILL.md`
+- Calibre: [`../books-calibre/SKILL.md`](../books-calibre/SKILL.md)
+- Goodreads: [`../books-analyze-goodreads-export/SKILL.md`](../books-analyze-goodreads-export/SKILL.md)
 
 ## Choose an operation second
 

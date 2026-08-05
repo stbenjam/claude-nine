@@ -43,9 +43,9 @@ on Linux).
 **Without:** run `gh pr view --json number,url,headRefName,baseRefName`.
 If no open PR found, ask the user for a URL.
 
-#### Step 1.2: Clone or locate repo
+#### Step 1.2: Clone or locate repository
 
-Check `$GIT_DIR/<repo>` (default `~/git/<repo>`) for existing
+Check `$GIT_DIR/<repository>` (default `~/git/<repository>`) for existing
 clone with matching remote. Otherwise
 `gh repo clone <owner>/<repo>` and `cd` into it.
 
@@ -75,7 +75,7 @@ window to reflect the PR being shepherded. Do not rename the
 tmux session — the user controls session naming.
 
 ```bash
-tmux rename-window "<owner>/<repo>#<pr_number>"
+tmux rename-window "<owner>/<repository>#<pr_number>"
 ```
 
 This labels the window tab so the user can identify which PR
@@ -87,7 +87,7 @@ Record current UTC timestamp for backoff schedule calculations.
 
 #### Step 1.6: Load project references
 
-Match `<owner>/<repo>` against patterns below. Only read the
+Match `<owner>/<repository>` against patterns below. Only read the
 matching file.
 
 **APM** (`microsoft/apm`): See [references/apm.md](references/apm.md)
@@ -333,7 +333,7 @@ etc. and run relevant targets. Don't re-run unless code changed.
 ## Self-Improvement
 
 When you learn something new during a run:
-- **Repo-specific**: create/update a file in `<skill-dir>/references/`
+- **Repository-specific**: create/update a file in `<skill-dir>/references/`
 - **Process**: update SKILL.md directly
 
 Submit as a PR to `https://github.com/stbenjam/skills`

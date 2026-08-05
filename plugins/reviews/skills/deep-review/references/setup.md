@@ -8,7 +8,7 @@ Do not pass a raw URL as an ID:
 1. **GitHub URL** (`github.com/.../pull/N`): set
    `PLATFORM=github`, `OWNER`, `REPO`, `PR_NUMBER=N`
 2. **GitLab URL** (`gitlab.com/.../-/merge_requests/N`): set
-   `PLATFORM=gitlab`, `PROJECT` (group/subgroup/repo path),
+   `PLATFORM=gitlab`, `PROJECT` (group/subgroup/repository path),
    `MR_IID=N`. Prefer `OWNER`/`REPO` only when the project path
    has exactly two segments
 3. **Bare integer**: detect platform from `git remote -v`
@@ -34,7 +34,7 @@ that expect a numeric IID alone.
 
 **Hard failure on inaccessible PR/MR:** If a PR/MR identifier was
 provided and checkout or metadata fetch fails (wrong URL, private
-repo, missing permissions, 404/403), **error and exit immediately**.
+repository, missing permissions, 404/403), **error and exit immediately**.
 Do **not** fall back to reviewing the current local branch — that
 silently reviews the wrong code.
 

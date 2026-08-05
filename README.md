@@ -1,6 +1,6 @@
 # stbenjam's skills
 
-[![skillsaw grade](https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fstbenjam%2Fskills%2Fmain%2F.skillsaw-badge.json)](https://skillsaw.org/)
+[![skillsaw report card](https://raw.githubusercontent.com/stbenjam/skills/main/.skillsaw-card.svg)](https://skillsaw.org/)
 
 Shared skills and plugins for Claude Code and Codex by stbenjam.
 

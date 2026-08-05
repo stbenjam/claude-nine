@@ -6,9 +6,10 @@ match: ["openshift*/*", "kubernetes*/*"]
 
 ## CI wait strategy — long-running e2e jobs
 
-Prow-based CI in these repos includes e2e jobs (`e2e-*` and similar)
+Prow-based CI in these repositories includes e2e jobs (`e2e-*` and similar)
 that routinely take 1-3 hours. Polling every few minutes wastes
-tokens and achieves nothing.
+tokens and achieves nothing; stop after one check, then schedule the
+next iteration instead of polling again.
 
 **Override Step 3.5 (pending CI):** when pending checks are Prow
 e2e jobs, do not poll on the fast 2-3 minute cycle. Instead, use
