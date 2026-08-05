@@ -16,12 +16,17 @@ Shared skills and plugins for Claude Code and Codex by stbenjam.
 
 ## Plugins
 
-- **[books](plugins/books/)**: Book library workflows
-- **[loops](plugins/loops/)**: Autonomous workflows that shepherd work to completion, such as driving a pull request to a mergeable state
-- **[openclaw](plugins/openclaw/)**: A grab-bag of miscellaneous OpenClaw skills (pollen forecasts, Orangetheory lookups, narrated video reels) with no unifying theme
-- **[reviews](plugins/reviews/)**: Multi-agent panel code review with specialist reviewers and runtime reproducers
-- **[rules](plugins/rules/)**: Context-specific rules for safe Git operations and rigorous test-failure investigation
-- **[steering](plugins/steering/)**: Compact skills for changing direction, explaining decisions, asking for clarity, tightening prose, executing decisively, and raising frontend quality
+<!-- BEGIN GENERATED PLUGIN TABLE -->
+
+| Plugin | Description |
+| --- | --- |
+| [books](plugins/books/) | Search and analyze a Calibre library or Goodreads export |
+| [loops](plugins/loops/) | Autonomous loops that shepherd work to completion, such as driving a PR to a mergeable state |
+| [openclaw](plugins/openclaw/) | A grab-bag of miscellaneous OpenClaw skills (pollen forecasts, Orangetheory lookups, narrated video reels) with no unifying theme. |
+| [reviews](plugins/reviews/) | Multi-agent panel code review with specialist reviewers and runtime reproducers |
+| [rules](plugins/rules/) | Context-specific rules for safe Git operations and rigorous test-failure investigation. |
+| [steering](plugins/steering/) | Compact conversation-steering skills for changing direction, explaining decisions, asking for clarity, tightening prose, executing decisively, and raising frontend quality. |
+<!-- END GENERATED PLUGIN TABLE -->
 
 ## Installation
 
@@ -73,17 +78,19 @@ Run `make update` after adding or removing plugin skills to refresh links and do
 
 ## Development
 
-Lint plugins and skills with [skillsaw](https://skillsaw.org/) in strict mode:
+Run `make update` to regenerate the documentation, this plugin table, and the
+root `skills/` symlinks. Then lint plugins and skills with
+[skillsaw](https://skillsaw.org/) in strict mode:
 
 ```bash
+make update
 make lint
 ```
 
-Apply autofixes or regenerate the static catalog documentation with:
+Apply autofixes with:
 
 ```bash
 make lint-fix
-make update
 ```
 
 ## License
