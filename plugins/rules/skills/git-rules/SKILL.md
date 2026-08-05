@@ -1,6 +1,10 @@
 ---
-description: "How to use git"
-applyTo: "**"
+name: git-rules
+description: Use this skill for critical Git rules whenever working with Git, especially before pushing, rebasing, or comparing branches.
+license: MIT
+metadata:
+  author: stbenjam
+  version: "0.1.0"
 ---
 
 THESE ARE CRITICAL INSTRUCTIONS WHEN WORKING WITH GIT.

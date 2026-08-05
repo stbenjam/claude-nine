@@ -1,8 +1,0 @@
-name: stbenjam
-version: 1.0.0
-description: Skills, rules, hooks, and more that stbenjam uses for development.
-target: [cursor, claude, opencode]
-
-dependencies:
-  apm:
-    - stbenjam/skills/plugins/loops

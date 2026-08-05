@@ -1,0 +1,18 @@
+{
+  "name": "rules",
+  "version": "0.1.0",
+  "description": "Context-specific rules for safe Git operations and rigorous test-failure investigation.",
+  "author": {
+    "name": "stbenjam"
+  },
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Rules",
+    "shortDescription": "Apply context-specific repository rules.",
+    "longDescription": "Use critical Git safeguards before repository operations and follow an evidence-based process when tests fail.",
+    "developerName": "stbenjam",
+    "category": "Developer Tools",
+    "capabilities": [],
+    "defaultPrompt": "Apply the relevant repository rules to this task."
+  }
+}

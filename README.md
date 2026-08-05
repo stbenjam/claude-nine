@@ -19,6 +19,7 @@ Shared skills and plugins for Claude Code and Codex by stbenjam.
 - **[books](plugins/books/)**: Book library workflows
 - **[loops](plugins/loops/)**: Autonomous workflows that shepherd work to completion, such as driving a pull request to a mergeable state
 - **[reviews](plugins/reviews/)**: Multi-agent panel code review with specialist reviewers and runtime reproducers
+- **[rules](plugins/rules/)**: Context-specific rules for safe Git operations and rigorous test-failure investigation
 - **[steering](plugins/steering/)**: Compact skills for changing direction, explaining decisions, asking for clarity, tightening prose, executing decisively, and raising frontend quality
 
 ## Installation
@@ -54,15 +55,21 @@ Codex catalog is `.agents/plugins/marketplace.json`.
 
 ### Standalone Agent Skills
 
-Copy any skill directory into `.agents/skills`:
+The root `skills/` directory contains symlinks to every plugin skill. Refresh
+it and regenerate the documentation after adding or removing plugin skills:
+
+```
+make update
+```
+
+Then copy any skill directory into `.agents/skills`:
 
 ```
 mkdir -p .agents/skills
-cp -R plugins/steering/skills/nah .agents/skills/
+cp -RL skills/git-rules .agents/skills/
 ```
 
-Replace `steering/skills/nah` with the plugin and skill you want; each copied
-directory must contain its `SKILL.md` file.
+Each symlink points to a plugin skill directory containing its `SKILL.md` file.
 
 Claude Code uses `.claude-plugin/marketplace.json`, while Codex uses
 `.agents/plugins/marketplace.json`; both catalogs point at the same plugin
@@ -80,7 +87,7 @@ Apply autofixes or regenerate the static catalog documentation with:
 
 ```bash
 make lint-fix
-make docs
+make update
 ```
 
 ## License

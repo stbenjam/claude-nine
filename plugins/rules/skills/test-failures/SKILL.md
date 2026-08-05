@@ -1,6 +1,10 @@
 ---
-description: "Rules to follow with test failures"
-applyTo: "**"
+name: test-failures
+description: Use this skill whenever any test fails. Follow the required investigation process before deciding whether a failure is pre-existing or what to fix.
+license: MIT
+metadata:
+  author: stbenjam
+  version: "0.1.0"
 ---
 
 When any test fails, you MUST follow this process:

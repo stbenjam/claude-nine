@@ -21,6 +21,11 @@
       "version": "0.0.4"
     },
     {
+      "name": "rules",
+      "source": "./plugins/rules",
+      "description": "Context-specific rules for safe Git operations and rigorous test-failure investigation."
+    },
+    {
       "name": "steering",
       "source": "./plugins/steering",
       "description": "Compact conversation-steering skills for changing direction, explaining decisions, asking for clarity, tightening prose, executing decisively, and raising frontend quality."
