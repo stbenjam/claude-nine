@@ -1,5 +1,5 @@
 ---
-name: books-book-library
+name: books-library
 description: Search, analyze, and recommend books from either a Calibre library or a Goodreads CSV export.
 user-invocable: true
 ---

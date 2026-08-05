@@ -6,8 +6,8 @@ user-invocable: true
 
 # Pick a random book
 
-Read `../books-book-library/SKILL.md` first to choose the authoritative
-backend, then read `../books-book-library/references/random.md`.
+Read `../books-library/SKILL.md` first to choose the authoritative backend,
+then read `../books-library/references/random.md`.
 
 Use the TBR as the default pool: non-archived unread Calibre books or
 Goodreads books marked `is_tbr`. Honor explicit requests for the entire

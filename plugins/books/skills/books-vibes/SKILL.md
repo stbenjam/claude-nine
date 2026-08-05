@@ -7,8 +7,8 @@ user-invocable: true
 # Find similar books
 
 Ask for a reference title when it is missing. Read
-`../books-book-library/SKILL.md` to choose the authoritative backend, then
-read `../books-book-library/references/similarity.md`.
+`../books-library/SKILL.md` to choose the authoritative backend, then read
+`../books-library/references/similarity.md`.
 
 Find unread matches in descending confidence: same author, same or related
 series, shared tags or Goodreads shelves, similar page count, and similar

@@ -10,7 +10,7 @@ Code, Codex, and standalone Agent Skills setup.
 
 The invocable skills `/books:books-next`, `/books:books-random`,
 `/books:books-series`, `/books:books-stats`, and `/books:books-vibes` are
-available directly. Each one starts with the `books-book-library` router, asks
+available directly. Each one starts with the `books-library` router, asks
 which data source is authoritative
 when the request does not make that clear, and loads only the matching backend
 and operation reference. This keeps the initial context small while preserving

@@ -4,6 +4,23 @@
 
 Shared skills and plugins for Claude Code and Codex by stbenjam.
 
+## Contents
+
+- [Plugins](#plugins)
+- [Installation](#installation)
+  - [Claude Code](#claude-code)
+  - [Codex](#codex)
+  - [Standalone Agent Skills](#standalone-agent-skills)
+- [Development](#development)
+- [License](#license)
+
+## Plugins
+
+- **[books](plugins/books/)**: Book library workflows
+- **[loops](plugins/loops/)**: Autonomous workflows that shepherd work to completion, such as driving a pull request to a mergeable state
+- **[reviews](plugins/reviews/)**: Multi-agent panel code review with specialist reviewers and runtime reproducers
+- **[steering](plugins/steering/)**: Compact skills for changing direction, explaining decisions, asking for clarity, tightening prose, executing decisively, and raising frontend quality
+
 ## Installation
 
 Choose the setup that matches your agent host. All paths below start at the
@@ -50,13 +67,6 @@ directory must contain its `SKILL.md` file.
 Claude Code uses `.claude-plugin/marketplace.json`, while Codex uses
 `.agents/plugins/marketplace.json`; both catalogs point at the same plugin
 directories and skills.
-
-## Plugins
-
-- **books**: Book library workflows
-- **loops**: Autonomous workflows that shepherd work to completion, such as driving a pull request to a mergeable state
-- **reviews**: Multi-agent panel code review with specialist reviewers and runtime reproducers
-- **steering**: Compact skills for changing direction, explaining decisions, asking for clarity, tightening prose, executing decisively, and raising frontend quality
 
 ## Development
 
