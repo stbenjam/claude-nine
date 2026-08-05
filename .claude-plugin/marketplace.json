@@ -29,6 +29,11 @@
       "name": "steering",
       "source": "./plugins/steering",
       "description": "Compact conversation-steering skills for changing direction, explaining decisions, asking for clarity, tightening prose, executing decisively, and raising frontend quality."
+    },
+    {
+      "name": "openclaw",
+      "source": "./plugins/openclaw",
+      "description": "A grab-bag of miscellaneous OpenClaw skills (pollen forecasts, Orangetheory lookups, narrated video reels) with no unifying theme."
     }
   ]
 }

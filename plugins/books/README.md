@@ -34,3 +34,20 @@ statistics, and similar books.
 
 The plugin keeps the two sources separate. When a request could be answered by
 both, choose the source explicitly rather than combining unrelated exports.
+
+## Discovery and acquisition
+
+Two optional skills extend the library queries into new-release scouting and
+acquisition. They drive a browser and, for holds/loans/purchases, external
+accounts, so they are separate from the read-only query skills above.
+
+- **books-release-scout** builds a taste profile from Calibre ratings, finds
+  genuinely new releases that fit, and presents current library availability
+  and retailer pricing. It is strictly read-only and takes no external action.
+- **books-acquirer** acquires a specific verified book: library-first
+  (borrow/hold/download and Calibre import) with an explicit, price-confirmed
+  retailer purchase fallback. It requires your own persistent browser profiles
+  and, for purchases, your own purchase/payment workflow.
+
+Both expect you to point them at your own library systems, retailer accounts,
+and Calibre import folder — nothing is hardcoded.
