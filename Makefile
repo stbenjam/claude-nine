@@ -20,13 +20,18 @@ lint-fix: ## Apply skillsaw autofixes
 docs: ## Generate plugin/skill documentation to docs/index.html
 	uvx skillsaw==$(SKILLSAW_VERSION) docs --format html -o docs/index.html --title "stbenjam's skills"
 
+.PHONY: plugin-table
+plugin-table: ## Generate the README plugin table from the marketplace catalogs
+	@python3 scripts/generate_plugin_table.py
+
 .PHONY: sync-skills
 sync-skills: ## Refresh root skills/ symlinks from plugin skills
 	@python3 scripts/sync_skills.py
 
 .PHONY: update
-update: ## Regenerate documentation and refresh root skill symlinks
+update: ## Regenerate documentation, the README plugin table, and root skill symlinks
 	@$(MAKE) docs
+	@$(MAKE) plugin-table
 	@$(MAKE) sync-skills
 
 .PHONY: new-plugin
