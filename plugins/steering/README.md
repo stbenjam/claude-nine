@@ -12,5 +12,6 @@ Code, Codex, and standalone Agent Skills setup.
 - [`/cut`](skills/cut/SKILL.md) — make the response terser without losing substance
 - [`/ask`](skills/ask/SKILL.md) — pause and ask the questions needed for a high-quality solution
 - [`/dig`](skills/dig/SKILL.md) — revisit superficial or under-verified agent work
+- [`/map`](skills/map/SKILL.md) — explain the shape and architecture of an implementation
 
 Inspired by [`bro` from dmmulroy/skills](https://github.com/dmmulroy/skills/blob/main/bro/SKILL.md).

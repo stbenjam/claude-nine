@@ -8,4 +8,5 @@ metadata:
 user-invocable: true
 disable-model-invocation: true
 ---
+
 Revisit the preceding work skeptically: identify shallow reasoning, unsupported claims, missing edge cases, and unverified assumptions, then investigate the highest-risk gaps.
