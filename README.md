@@ -55,7 +55,7 @@ Codex catalog is `.agents/plugins/marketplace.json`.
 
 ### Other Agents
 
-Install all skills:
+Use the `skills` CLI to select skills from any repository:
 
 ```
 npx skills install stbenjam/skills
