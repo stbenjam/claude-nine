@@ -1,0 +1,10 @@
+interface:
+  display_name: "Nah"
+  short_description: "Propose better directions when needed."
+  icon_small: "./assets/icon.svg"
+  icon_large: "./assets/icon.svg"
+  brand_color: "#9333EA"
+  default_prompt: "Use $nah to propose better directions."
+
+policy:
+  allow_implicit_invocation: false

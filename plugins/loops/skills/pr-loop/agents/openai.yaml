@@ -1,0 +1,7 @@
+interface:
+  display_name: "PR Loop"
+  short_description: "Shepherd pull requests toward merge."
+  icon_small: "./assets/icon.svg"
+  icon_large: "./assets/icon.svg"
+  brand_color: "#EF4444"
+  default_prompt: "Use $pr-loop to shepherd a pull request."

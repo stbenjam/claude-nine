@@ -1,0 +1,10 @@
+interface:
+  display_name: "Wow"
+  short_description: "Push frontend design to Webby-worthy."
+  icon_small: "./assets/icon.svg"
+  icon_large: "./assets/icon.svg"
+  brand_color: "#E11D48"
+  default_prompt: "Use $wow to raise frontend design quality."
+
+policy:
+  allow_implicit_invocation: false

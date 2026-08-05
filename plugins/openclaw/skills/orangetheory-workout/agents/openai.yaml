@@ -1,0 +1,7 @@
+interface:
+  display_name: "Orangetheory Workout"
+  short_description: "Look up daily Orangetheory workouts."
+  icon_small: "./assets/icon.svg"
+  icon_large: "./assets/icon.svg"
+  brand_color: "#F97316"
+  default_prompt: "Use $orangetheory-workout to look up an OTF workout."

@@ -1,0 +1,7 @@
+interface:
+  display_name: "Make a Movie"
+  short_description: "Create polished narrated video reels."
+  icon_small: "./assets/icon.svg"
+  icon_large: "./assets/icon.svg"
+  brand_color: "#DB2777"
+  default_prompt: "Use $make-a-movie to create a polished video reel."

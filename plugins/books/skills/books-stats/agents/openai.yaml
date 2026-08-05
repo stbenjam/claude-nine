@@ -1,0 +1,7 @@
+interface:
+  display_name: "Book Stats"
+  short_description: "Show reading pace, pages, and TBR stats."
+  icon_small: "./assets/icon.svg"
+  icon_large: "./assets/icon.svg"
+  brand_color: "#06B6D4"
+  default_prompt: "Use $books-stats to show reading statistics."

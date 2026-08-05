@@ -1,0 +1,7 @@
+interface:
+  display_name: "Test Failures"
+  short_description: "Investigate failed tests with evidence."
+  icon_small: "./assets/icon.svg"
+  icon_large: "./assets/icon.svg"
+  brand_color: "#DC2626"
+  default_prompt: "Use $test-failures when a test fails."

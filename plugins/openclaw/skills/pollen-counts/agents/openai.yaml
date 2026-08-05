@@ -1,0 +1,7 @@
+interface:
+  display_name: "Pollen Counts"
+  short_description: "Check current and forecast pollen."
+  icon_small: "./assets/icon.svg"
+  icon_large: "./assets/icon.svg"
+  brand_color: "#65A30D"
+  default_prompt: "Use $pollen-counts to check a pollen forecast."

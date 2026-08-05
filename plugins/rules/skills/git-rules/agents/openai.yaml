@@ -1,0 +1,7 @@
+interface:
+  display_name: "Git Rules"
+  short_description: "Protect remotes and branch operations."
+  icon_small: "./assets/icon.svg"
+  icon_large: "./assets/icon.svg"
+  brand_color: "#334155"
+  default_prompt: "Use $git-rules before risky Git operations."

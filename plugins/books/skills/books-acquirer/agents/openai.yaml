@@ -1,0 +1,7 @@
+interface:
+  display_name: "Book Acquirer"
+  short_description: "Borrow or buy a named book."
+  icon_small: "./assets/icon.svg"
+  icon_large: "./assets/icon.svg"
+  brand_color: "#F59E0B"
+  default_prompt: "Use $books-acquirer to acquire a named book."
