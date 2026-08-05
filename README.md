@@ -11,6 +11,7 @@ Shared skills and plugins for Claude Code and Codex by stbenjam.
   - [Claude Code](#claude-code)
   - [Codex](#codex)
   - [Standalone Agent Skills](#standalone-agent-skills)
+  - [Other Agents](#other-agents)
 - [Development](#development)
 - [License](#license)
 
@@ -74,6 +75,14 @@ Each symlink points to a plugin skill directory containing its `SKILL.md` file.
 Claude Code uses `.claude-plugin/marketplace.json`, while Codex uses
 `.agents/plugins/marketplace.json`; both catalogs point at the same plugin
 directories and skills.
+
+### Other Agents
+
+Install the repository's skills with the `skills` CLI:
+
+```
+npx skills install stbenjam/skills
+```
 
 ## Development
 
