@@ -5,4 +5,4 @@ target: [cursor, claude, opencode]
 
 dependencies:
   apm:
-    - stbenjam/claude-nine/plugins/loops
+    - stbenjam/skills/plugins/loops

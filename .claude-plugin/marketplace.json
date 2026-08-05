@@ -1,5 +1,5 @@
 {
-  "name": "claude-nine",
+  "name": "stbenjam",
   "owner": {
     "name": "stbenjam"
   },
@@ -8,21 +8,6 @@
       "name": "books",
       "source": "./plugins/books",
       "description": "Search and analyze a Calibre library or Goodreads export"
-    },
-    {
-      "name": "calendar",
-      "source": "./plugins/calendar",
-      "description": "macOS Calendar integration via icalBuddy and AppleScript"
-    },
-    {
-      "name": "finances",
-      "source": "./plugins/finances",
-      "description": "Manage HSA receipts and financial documents"
-    },
-    {
-      "name": "git",
-      "source": "./plugins/git",
-      "description": "Git workflows"
     },
     {
       "name": "loops",

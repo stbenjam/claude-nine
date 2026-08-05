@@ -5,11 +5,13 @@ export. The plugin is shared by Claude Code and Codex.
 
 ## Skill routing
 
-Start with the `book-library` skill. It asks which data source is authoritative
-when the request does not make that clear, then loads only the matching
-backend and operation reference. This keeps the initial context small while
-preserving the detailed workflows for recommendations, random selections,
-series, statistics, and similar books.
+The invocable skills `/books:next`, `/books:random`, `/books:series`,
+`/books:stats`, and `/books:vibes` are available directly. Each one
+starts with the `book-library` router, asks which data source is authoritative
+when the request does not make that clear, and loads only the matching backend
+and operation reference. This keeps the initial context small while preserving
+the detailed workflows for recommendations, random selections, series,
+statistics, and similar books.
 
 ## Data sources
 

@@ -18,7 +18,7 @@ lint-fix: ## Apply skillsaw autofixes
 
 .PHONY: docs
 docs: ## Generate plugin/skill documentation to docs/index.html
-	uvx skillsaw==$(SKILLSAW_VERSION) docs --format html -o docs/index.html --title "claude-nine"
+	uvx skillsaw==$(SKILLSAW_VERSION) docs --format html -o docs/index.html --title "stbenjam's skills"
 
 .PHONY: new-plugin
 new-plugin: ## Create a new plugin (usage: make new-plugin NAME=my-plugin)
