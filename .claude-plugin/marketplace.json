@@ -5,19 +5,9 @@
   },
   "plugins": [
     {
-      "name": "git",
-      "source": "./plugins/git",
-      "description": "Git workflows"
-    },
-    {
       "name": "books",
       "source": "./plugins/books",
-      "description": "Various commands to work with my Calibre instance (very specific to mine, do not reccomend using)"
-    },
-    {
-      "name": "goodreads",
-      "source": "./plugins/goodreads",
-      "description": "Various commands to work with a Goodreads export"
+      "description": "Search and analyze a Calibre library or Goodreads export"
     },
     {
       "name": "calendar",
@@ -28,6 +18,11 @@
       "name": "finances",
       "source": "./plugins/finances",
       "description": "Manage HSA receipts and financial documents"
+    },
+    {
+      "name": "git",
+      "source": "./plugins/git",
+      "description": "Git workflows"
     },
     {
       "name": "loops",

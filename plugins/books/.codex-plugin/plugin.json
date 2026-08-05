@@ -1,0 +1,20 @@
+{
+  "name": "books",
+  "version": "0.0.1",
+  "description": "Search and analyze a Calibre library or Goodreads export, including reading lists, series, statistics, and recommendations.",
+  "author": {
+    "name": "stbenjam"
+  },
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Books",
+    "shortDescription": "Search and analyze your book libraries.",
+    "longDescription": "Choose a Calibre library or Goodreads export, then query books, reading lists, series, statistics, and recommendations.",
+    "developerName": "stbenjam",
+    "category": "Productivity",
+    "capabilities": [
+      "Read"
+    ],
+    "defaultPrompt": "Help me find something to read from my book library."
+  }
+}

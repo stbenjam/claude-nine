@@ -1,0 +1,80 @@
+{
+  "name": "claude-nine",
+  "interface": {
+    "displayName": "Claude Nine"
+  },
+  "plugins": [
+    {
+      "name": "books",
+      "source": {
+        "source": "local",
+        "path": "./plugins/books"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    },
+    {
+      "name": "calendar",
+      "source": {
+        "source": "local",
+        "path": "./plugins/calendar"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    },
+    {
+      "name": "finances",
+      "source": {
+        "source": "local",
+        "path": "./plugins/finances"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    },
+    {
+      "name": "git",
+      "source": {
+        "source": "local",
+        "path": "./plugins/git"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Developer Tools"
+    },
+    {
+      "name": "loops",
+      "source": {
+        "source": "local",
+        "path": "./plugins/loops"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Developer Tools"
+    },
+    {
+      "name": "reviews",
+      "source": {
+        "source": "local",
+        "path": "./plugins/reviews"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Developer Tools"
+    }
+  ]
+}

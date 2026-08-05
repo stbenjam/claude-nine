@@ -7,7 +7,7 @@
     {
       "name": "example-plugin",
       "source": "./plugins/example-plugin",
-      "description": "Example plugin demonstrating command structure"
+      "description": "Example plugin demonstrating shared skill structure"
     }
   ]
 }

@@ -1,0 +1,21 @@
+{
+  "name": "reviews",
+  "version": "0.0.4",
+  "description": "Multi-agent panel code review with specialist reviewers and runtime reproducers.",
+  "author": {
+    "name": "stbenjam"
+  },
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Reviews",
+    "shortDescription": "Run a deep, evidence-backed code review.",
+    "longDescription": "Coordinate specialist reviewers, verify blocking findings with runtime reproducers, and optionally post a pending review.",
+    "developerName": "stbenjam",
+    "category": "Developer Tools",
+    "capabilities": [
+      "Read",
+      "Write"
+    ],
+    "defaultPrompt": "Run a deep review of these changes."
+  }
+}

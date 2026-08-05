@@ -12,7 +12,7 @@ when ready, and monitors with exponential backoff up to 1 week.
 
 ## Arguments
 
-`/pr-loop [pr-url]` — full GitHub PR URL. If omitted, detects
+`pr-loop [pr-url]` — full GitHub PR URL. If omitted, detects
 from current branch.
 
 ## Prerequisites

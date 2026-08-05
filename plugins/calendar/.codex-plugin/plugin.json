@@ -1,0 +1,21 @@
+{
+  "name": "calendar",
+  "version": "0.0.1",
+  "description": "Query and manage macOS Calendar events with icalBuddy and AppleScript.",
+  "author": {
+    "name": "stbenjam"
+  },
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Calendar",
+    "shortDescription": "Query and manage macOS Calendar events.",
+    "longDescription": "View calendar events, find scheduling conflicts, and create or update events on macOS.",
+    "developerName": "stbenjam",
+    "category": "Productivity",
+    "capabilities": [
+      "Read",
+      "Write"
+    ],
+    "defaultPrompt": "Show me my calendar and help me schedule an event."
+  }
+}

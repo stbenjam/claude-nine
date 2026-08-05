@@ -1,8 +1,8 @@
 {
   "name": "books",
-  "description": "TODO: Add description",
+  "description": "Search and analyze a Calibre library or Goodreads export, including reading lists, series, statistics, and recommendations.",
   "version": "0.0.1",
   "author": {
-    "name": "TODO: Add author"
+    "name": "stbenjam"
   }
 }

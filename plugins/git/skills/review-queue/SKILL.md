@@ -1,6 +1,6 @@
 ---
 name: review-queue
-description: Generate a report of GitHub pull requests that need review attention. Use when the user asks about their PR review queue, which PRs need reviewing, the status of their open PRs across repositories, or invokes /git:review-queue.
+description: Generate a report of GitHub pull requests that need review attention. Use when the user asks about their PR review queue, which PRs need reviewing, or the status of their open PRs across repositories.
 user-invocable: true
 ---
 
@@ -8,13 +8,9 @@ user-invocable: true
 
 Generate a comprehensive report of pull requests that need attention. This skill operates in two modes: analyzing your own PRs across repositories, or providing a detailed breakdown of all open PRs in a specific repository. It integrates with GitHub's tide status to identify merge blockers, categorizes PRs by review state, and helps prioritize review work.
 
-## Invocation
+## Input
 
-```
-/git:review-queue [org/repo]
-```
-
-- `org/repo` (optional): Repository to analyze in format `owner/repo`. If omitted, reports your PRs across all repositories.
+- `org/repo` (optional): Repository to analyze in format `owner/repo`. If omitted, report your PRs across all repositories.
 
 **Key capabilities:**
 - Identify your PRs awaiting reviews, approvals, or blocked by CI
@@ -334,8 +330,8 @@ Current User: @stbenjam
 
 All examples produce a report in the format shown under **Return Value** above. Each entry below lists the invocation and the distinguishing behavior to expect.
 
-- **`/git:review-queue`** — My-PRs mode across all repositories. Groups your open PRs into Awaiting Reviews, Requested Changes, Blocked by CI, and Ready to Merge, and closes with a priority recommendation (oldest waiting PR / outstanding change requests first).
-- **`/git:review-queue openshift/installer`** — Repository mode. Groups the repo's open PRs into PRs I've Reviewed, Fresh PRs (No Reviews Yet), and In Discussion, with an Excluded from Review summary (merge conflicts, drafts, failing required CI).
+- **`review-queue` without a repository** — My-PRs mode across all repositories. Groups your open PRs into Awaiting Reviews, Requested Changes, Blocked by CI, and Ready to Merge, and closes with a priority recommendation (oldest waiting PR / outstanding change requests first).
+- **`review-queue openshift/installer`** — Repository mode. Groups the repo's open PRs into PRs I've Reviewed, Fresh PRs (No Reviews Yet), and In Discussion, with an Excluded from Review summary (merge conflicts, drafts, failing required CI).
 - **Repository with nothing to review** — when every open PR is a draft, has merge conflicts, or is awaiting CI, all categories are empty and the report ends with `✅ No PRs currently need review.`
 - **Your PRs all in good state** — when no PR needs attention, My PRs Needing Attention is 0 and Ready to Merge lists approved / in-merge-queue PRs.
 - **Large repository (>100 open PRs)** — only the 50 most recent are shown, prefixed with an `ℹ️` note suggesting `gh pr list` filters (`--label`, `--author "@me"`) to narrow the set.
