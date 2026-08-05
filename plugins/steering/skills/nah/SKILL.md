@@ -1,6 +1,10 @@
 ---
 name: nah
 description: Abandon the current direction, propose three genuinely different approaches, and recommend the strongest one.
+license: MIT
+metadata:
+  author: stbenjam
+  version: "0.1.0"
 user-invocable: true
 disable-model-invocation: true
 ---
