@@ -20,6 +20,10 @@ lint-fix: ## Apply skillsaw autofixes
 docs: ## Generate plugin/skill documentation to docs/index.html
 	uvx skillsaw==$(SKILLSAW_VERSION) docs --format html -o docs/index.html --title "stbenjam's skills"
 
+.PHONY: sync-skills
+sync-skills: ## Refresh root skills/ symlinks from plugin skills
+	@python3 scripts/sync_skills.py
+
 .PHONY: new-plugin
 new-plugin: ## Create a new plugin (usage: make new-plugin NAME=my-plugin)
 	@if [ -z "$(NAME)" ]; then \
@@ -33,6 +37,7 @@ new-plugin: ## Create a new plugin (usage: make new-plugin NAME=my-plugin)
 	@printf '%s\n' '# $(NAME)' '' 'Reusable Claude Code and Codex workflows.' > plugins/$(NAME)/README.md
 	@echo "Adding $(NAME) to both marketplace catalogs..."
 	@python3 -c "import json; from pathlib import Path; name='$(NAME)'; description='Reusable $(NAME) workflows.'; claude_path=Path('.claude-plugin/marketplace.json'); claude=json.loads(claude_path.read_text()); claude['plugins'].append({'name': name, 'source': './plugins/'+name, 'description': description}); claude_path.write_text(json.dumps(claude, indent=2)+'\\n'); codex_path=Path('$(CODEX_MARKETPLACE)'); codex=json.loads(codex_path.read_text()); codex['plugins'].append({'name': name, 'source': {'source': 'local', 'path': './plugins/'+name}, 'policy': {'installation': 'AVAILABLE', 'authentication': 'ON_INSTALL'}, 'category': 'Productivity'}); codex_path.write_text(json.dumps(codex, indent=2)+'\\n')"
+	@$(MAKE) sync-skills
 	@echo "✓ Created plugin: $(NAME)"
 	@echo "✓ Added to Claude and Codex marketplace catalogs"
 

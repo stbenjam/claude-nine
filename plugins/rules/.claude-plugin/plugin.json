@@ -1,0 +1,8 @@
+{
+  "name": "rules",
+  "description": "Context-specific rules for safe Git operations and rigorous test-failure investigation.",
+  "version": "0.1.0",
+  "author": {
+    "name": "stbenjam"
+  }
+}
