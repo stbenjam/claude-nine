@@ -55,11 +55,11 @@ Codex catalog is `.agents/plugins/marketplace.json`.
 
 ### Standalone Agent Skills
 
-The root `skills/` directory contains symlinks to every plugin skill. Refresh it
-after adding or removing plugin skills with:
+The root `skills/` directory contains symlinks to every plugin skill. Refresh
+it and regenerate the documentation after adding or removing plugin skills:
 
 ```
-make sync-skills
+make update
 ```
 
 Then copy any skill directory into `.agents/skills`:
@@ -87,13 +87,7 @@ Apply autofixes or regenerate the static catalog documentation with:
 
 ```bash
 make lint-fix
-make docs
-```
-
-Refresh the root standalone-skill symlinks with:
-
-```bash
-make sync-skills
+make update
 ```
 
 ## License
