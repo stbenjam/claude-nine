@@ -1,0 +1,7 @@
+interface:
+  display_name: "Calibre Library"
+  short_description: "Search a Calibre library backend."
+  icon_small: "./assets/icon.svg"
+  icon_large: "./assets/icon.svg"
+  brand_color: "#7C3AED"
+  default_prompt: "Use $books-calibre to search a Calibre library."

@@ -1,0 +1,7 @@
+interface:
+  display_name: "Incomplete Series Finder"
+  short_description: "Find unfinished series and next reads."
+  icon_small: "./assets/icon.svg"
+  icon_large: "./assets/icon.svg"
+  brand_color: "#14B8A6"
+  default_prompt: "Use $books-find-incomplete-series to find unfinished series."

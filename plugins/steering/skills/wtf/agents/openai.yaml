@@ -1,0 +1,10 @@
+interface:
+  display_name: "WTF"
+  short_description: "Explain reasoning, evidence, and tradeoffs."
+  icon_small: "./assets/icon.svg"
+  icon_large: "./assets/icon.svg"
+  brand_color: "#111827"
+  default_prompt: "Use $wtf to explain the reasoning behind an action."
+
+policy:
+  allow_implicit_invocation: false

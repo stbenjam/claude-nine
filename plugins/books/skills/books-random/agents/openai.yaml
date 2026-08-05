@@ -1,0 +1,7 @@
+interface:
+  display_name: "Random Book"
+  short_description: "Pick a random book from your library."
+  icon_small: "./assets/icon.svg"
+  icon_large: "./assets/icon.svg"
+  brand_color: "#84CC16"
+  default_prompt: "Use $books-random to pick a random book."

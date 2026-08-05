@@ -1,0 +1,10 @@
+interface:
+  display_name: "Cut"
+  short_description: "Make the response terser."
+  icon_small: "./assets/icon.svg"
+  icon_large: "./assets/icon.svg"
+  brand_color: "#EA580C"
+  default_prompt: "Use $cut to make the response terser."
+
+policy:
+  allow_implicit_invocation: false

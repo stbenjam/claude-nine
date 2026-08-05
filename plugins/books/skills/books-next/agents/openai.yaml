@@ -1,0 +1,7 @@
+interface:
+  display_name: "Next Book"
+  short_description: "Recommend what to read next."
+  icon_small: "./assets/icon.svg"
+  icon_large: "./assets/icon.svg"
+  brand_color: "#F97316"
+  default_prompt: "Use $books-next to recommend what to read next."

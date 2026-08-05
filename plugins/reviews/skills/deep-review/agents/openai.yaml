@@ -1,0 +1,7 @@
+interface:
+  display_name: "Deep Review"
+  short_description: "Run a deep multi-specialist code review."
+  icon_small: "./assets/icon.svg"
+  icon_large: "./assets/icon.svg"
+  brand_color: "#475569"
+  default_prompt: "Use $deep-review to run a deep code review."

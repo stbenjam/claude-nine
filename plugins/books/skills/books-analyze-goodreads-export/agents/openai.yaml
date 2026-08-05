@@ -1,0 +1,7 @@
+interface:
+  display_name: "Goodreads Export Analyzer"
+  short_description: "Query a Goodreads library export."
+  icon_small: "./assets/icon.svg"
+  icon_large: "./assets/icon.svg"
+  brand_color: "#EC4899"
+  default_prompt: "Use $books-analyze-goodreads-export to query a Goodreads export."

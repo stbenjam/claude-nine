@@ -1,0 +1,10 @@
+interface:
+  display_name: "LFG"
+  short_description: "Implement decisively with sane defaults."
+  icon_small: "./assets/icon.svg"
+  icon_large: "./assets/icon.svg"
+  brand_color: "#16A34A"
+  default_prompt: "Use $lfg to implement with sane defaults."
+
+policy:
+  allow_implicit_invocation: false

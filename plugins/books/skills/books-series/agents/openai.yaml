@@ -1,0 +1,7 @@
+interface:
+  display_name: "Book Series"
+  short_description: "Find unfinished series and next books."
+  icon_small: "./assets/icon.svg"
+  icon_large: "./assets/icon.svg"
+  brand_color: "#8B5CF6"
+  default_prompt: "Use $books-series to find unfinished series."

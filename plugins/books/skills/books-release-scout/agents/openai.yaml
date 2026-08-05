@@ -1,0 +1,7 @@
+interface:
+  display_name: "Book Release Scout"
+  short_description: "Scout new releases worth reading."
+  icon_small: "./assets/icon.svg"
+  icon_large: "./assets/icon.svg"
+  brand_color: "#0EA5E9"
+  default_prompt: "Use $books-release-scout to scout new book releases."

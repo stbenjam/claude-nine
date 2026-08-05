@@ -1,0 +1,7 @@
+interface:
+  display_name: "Book Library"
+  short_description: "Search and analyze your book libraries."
+  icon_small: "./assets/icon.svg"
+  icon_large: "./assets/icon.svg"
+  brand_color: "#2563EB"
+  default_prompt: "Use $books-library to search or analyze a book library."

@@ -1,0 +1,7 @@
+interface:
+  display_name: "Book Vibes"
+  short_description: "Find books with a similar vibe."
+  icon_small: "./assets/icon.svg"
+  icon_large: "./assets/icon.svg"
+  brand_color: "#D946EF"
+  default_prompt: "Use $books-vibes to find books with a similar vibe."
