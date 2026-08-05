@@ -1,13 +1,13 @@
 ---
-name: random
+name: books-random
 description: Pick a random book from a Calibre library or Goodreads export, honoring the user's requested pool and filters.
 user-invocable: true
 ---
 
 # Pick a random book
 
-Read `../book-library/SKILL.md` first to choose the authoritative backend,
-then read `../book-library/references/random.md`.
+Read `../books-book-library/SKILL.md` first to choose the authoritative
+backend, then read `../books-book-library/references/random.md`.
 
 Use the TBR as the default pool: non-archived unread Calibre books or
 Goodreads books marked `is_tbr`. Honor explicit requests for the entire

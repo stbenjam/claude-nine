@@ -1,6 +1,6 @@
 ---
-name: calibre
-description: Supporting Calibre backend for the book-library skill; use it after that skill selects Calibre as the data source.
+name: books-calibre
+description: Supporting Calibre backend for the books-book-library skill; use it after that skill selects Calibre as the data source.
 user-invocable: false
 ---
 

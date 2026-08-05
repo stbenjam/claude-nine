@@ -1,13 +1,13 @@
 ---
-name: next
+name: books-next
 description: Analyze reading patterns and recommend what to read next from a Calibre library or Goodreads export.
 user-invocable: true
 ---
 
 # Recommend what to read next
 
-Read `../book-library/SKILL.md` first to choose the authoritative backend,
-then read `../book-library/references/recommendations.md`.
+Read `../books-book-library/SKILL.md` first to choose the authoritative
+backend, then read `../books-book-library/references/recommendations.md`.
 
 Analyze the last 15 books read in the selected library, using the backend's
 actual reading-date field. Look for series continuity, recent page-count

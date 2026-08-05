@@ -1,10 +1,10 @@
 ---
-name: find-incomplete-series
+name: books-find-incomplete-series
 description: Find incomplete series in a Calibre library and identify the next book to read in each series.
 user-invocable: false
 ---
 
-This is a supporting workflow used by `book-library` for Calibre series
+This is a supporting workflow used by `books-book-library` for Calibre series
 analysis. It finds series where at least one book is read but the series is not
 complete.
 

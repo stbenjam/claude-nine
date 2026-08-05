@@ -1,13 +1,13 @@
 ---
-name: stats
+name: books-stats
 description: Show reading statistics from a Calibre library or Goodreads export, including pace, pages, ratings, authors, series, and TBR.
 user-invocable: true
 ---
 
 # Show reading statistics
 
-Read `../book-library/SKILL.md` first to choose the authoritative backend,
-then read `../book-library/references/statistics.md`.
+Read `../books-book-library/SKILL.md` first to choose the authoritative
+backend, then read `../books-book-library/references/statistics.md`.
 
 Calculate reading velocity for the current year and the last 30 and 90 days,
 monthly pace, total and average pages, longest and shortest books, personal

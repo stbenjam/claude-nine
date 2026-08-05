@@ -1,17 +1,18 @@
 ---
-name: series
+name: books-series
 description: List unfinished book series and the next unread book from a Calibre library or Goodreads export.
 user-invocable: true
 ---
 
 # Find unfinished series
 
-Read `../book-library/SKILL.md` first to choose the authoritative backend,
-then read `../book-library/references/series.md`.
+Read `../books-book-library/SKILL.md` first to choose the authoritative
+backend, then read `../books-book-library/references/series.md`.
 
 Find series with at least one read book and at least one unread book. Use the
 selected backend's helper rather than writing an ad hoc parser: the Calibre
-`find-incomplete-series` skill and the Goodreads `GoodreadsLibrary` helper.
+`books-find-incomplete-series` skill and the Goodreads `GoodreadsLibrary`
+helper.
 Sort series by name and identify the first unread book in series order only
 when the source provides a usable series index.
 

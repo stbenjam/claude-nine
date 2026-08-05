@@ -1,5 +1,5 @@
 ---
-name: book-library
+name: books-book-library
 description: Search, analyze, and recommend books from either a Calibre library or a Goodreads CSV export.
 user-invocable: true
 ---
@@ -20,8 +20,8 @@ the conversation only loads the instructions and data source it needs.
 
 After choosing, read only the matching backend skill:
 
-- Calibre: `../calibre/SKILL.md`
-- Goodreads: `../analyze-goodreads-export/SKILL.md`
+- Calibre: `../books-calibre/SKILL.md`
+- Goodreads: `../books-analyze-goodreads-export/SKILL.md`
 
 ## Choose an operation second
 

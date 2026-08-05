@@ -1,5 +1,5 @@
 ---
-name: vibes
+name: books-vibes
 description: Find books with similar authors, series, themes, shelves, length, or ratings in a Calibre library or Goodreads export.
 user-invocable: true
 ---
@@ -7,8 +7,8 @@ user-invocable: true
 # Find similar books
 
 Ask for a reference title when it is missing. Read
-`../book-library/SKILL.md` to choose the authoritative backend, then read
-`../book-library/references/similarity.md`.
+`../books-book-library/SKILL.md` to choose the authoritative backend, then
+read `../books-book-library/references/similarity.md`.
 
 Find unread matches in descending confidence: same author, same or related
 series, shared tags or Goodreads shelves, similar page count, and similar
