@@ -1,6 +1,6 @@
 # Makefile for Claude Code and Codex plugins
 
-SKILLSAW_VERSION := 0.17.0
+SKILLSAW_VERSION := 0.18.0
 CODEX_MARKETPLACE := .agents/plugins/marketplace.json
 
 .PHONY: help
@@ -32,6 +32,14 @@ plugin-readmes: ## Generate skill lists in plugin READMEs
 sync-skills: ## Refresh root skills/ symlinks from plugin skills
 	@python3 scripts/sync_skills.py
 
+.PHONY: sync-agent-plugins
+sync-agent-plugins: ## Create missing Agent Plugins manifests and MCP configurations
+	@python3 scripts/sync_agent_plugins.py
+
+.PHONY: check-agent-plugins
+check-agent-plugins: ## Verify Claude and Agent Plugins metadata is synchronized
+	@python3 scripts/sync_agent_plugins.py --check
+
 .PHONY: update
 update: ## Regenerate documentation, README content, and root skill symlinks
 	@$(MAKE) docs
@@ -48,6 +56,7 @@ new-plugin: ## Create a new plugin (usage: make new-plugin NAME=my-plugin)
 	@echo "Creating new plugin: $(NAME)..."
 	@mkdir -p plugins/$(NAME)/{.claude-plugin,.codex-plugin,skills/$(NAME)}
 	@python3 -c "import json; from pathlib import Path; name='$(NAME)'; description='Reusable $(NAME) workflows.'; root=Path('plugins')/name; claude={'name': name, 'description': description, 'version': '0.1.0', 'author': {'name': 'stbenjam'}}; codex={'name': name, 'version': '0.1.0', 'description': description, 'author': {'name': 'stbenjam'}, 'skills': './skills/', 'interface': {'displayName': name.replace('-', ' ').title(), 'shortDescription': description, 'longDescription': description, 'developerName': 'stbenjam', 'category': 'Productivity', 'capabilities': [], 'defaultPrompt': 'Help me use this plugin.'}}; (root/'.claude-plugin/plugin.json').write_text(json.dumps(claude, indent=2)+'\\n'); (root/'.codex-plugin/plugin.json').write_text(json.dumps(codex, indent=2)+'\\n')"
+	@python3 -c "import json; from pathlib import Path; name='$(NAME)'; description='Reusable $(NAME) workflows.'; path=Path('plugins')/name/'plugin.json'; portable={'$$schema': 'https://agent-plugins.org/schemas/1.0.0/plugin.schema.json', 'name': name, 'description': description, 'version': '0.1.0', 'author': {'name': 'stbenjam'}}; path.write_text(json.dumps(portable, indent=2)+'\\n')"
 	@printf '%s\n' '---' 'name: $(NAME)' 'description: Reusable $(NAME) workflows.' '---' '' '# $(NAME)' '' 'Follow the workflow for this plugin.' > plugins/$(NAME)/skills/$(NAME)/SKILL.md
 	@printf '%s\n' '# $(NAME)' '' 'Reusable Claude Code and Codex workflows.' > plugins/$(NAME)/README.md
 	@echo "Adding $(NAME) to both marketplace catalogs..."

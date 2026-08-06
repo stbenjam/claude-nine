@@ -1,9 +1,19 @@
 # skillsaw configuration
 # https://github.com/stbenjam/skillsaw
 
-version: "0.17.0"
+version: "0.18.0"
 
 rules:
+
+  # Agent Plugins plugin.json must conform to the 1.0.0 schema
+  agent-plugin-json-valid:
+    enabled: auto
+    severity: error
+
+  # Agent Plugins mcp.json must conform to the 1.0.0 schema and semantics
+  agent-plugin-mcp-valid:
+    enabled: auto
+    severity: error
 
   # Plugin must have .claude-plugin/plugin.json
   plugin-json-required:
@@ -57,11 +67,6 @@ rules:
   # Plugin should have a README.md file
   plugin-readme:
     enabled: auto
-    severity: warning
-
-  # SKILL.md files should have frontmatter with name and description
-  skill-frontmatter:
-    enabled: true
     severity: warning
 
   # Agent files must have valid frontmatter with name and description
@@ -214,12 +219,6 @@ rules:
     enabled: auto
     severity: warning
 
-  # Detect critical instructions in the middle of files where LLM attention is lowest
-  content-critical-position:
-    enabled: auto
-    severity: warning
-    min-lines: 50
-
   # Detect instructions that duplicate .editorconfig, ESLint, Prettier, or tsconfig settings
   content-redundant-with-tooling:
     enabled: auto
@@ -248,11 +247,6 @@ rules:
 
   # Detect instructions that should be automated as hooks instead of prose instructions
   content-hook-candidate:
-    enabled: auto
-    severity: info
-
-  # Score instruction files on actionability (verb density, commands, file references)
-  content-actionability-score:
     enabled: auto
     severity: info
 
@@ -321,6 +315,10 @@ rules:
     enabled: true
     severity: warning
 
+  # This repository is not yet enforcing the broad description-routing policy.
+  content-description-routing:
+    enabled: false
+
   # Detect long encoded payloads in agent context
   security-encoded-payload:
     enabled: true
@@ -367,7 +365,8 @@ rules:
     severity: error
 
 # Load custom rules from these files
-custom-rules: []
+custom-rules:
+  - ".skillsaw/agent_plugin_manifests_rule.py"
 
 # Exclude patterns (glob format)
 # Use exclude: [] to disable all excludes including defaults

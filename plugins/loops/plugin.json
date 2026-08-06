@@ -1,0 +1,9 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "loops",
+  "version": "0.0.3",
+  "description": "Autonomous loops that shepherd work to completion, such as driving a PR to a mergeable state",
+  "author": {
+    "name": "stbenjam"
+  }
+}

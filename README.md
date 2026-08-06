@@ -59,6 +59,18 @@ codex
 Select the plugin to install, then start a new Codex session. The repository's
 Codex catalog is `.agents/plugins/marketplace.json`.
 
+### Agent Plugins
+
+Each plugin also includes a portable Agent Plugins v1 manifest at
+`plugins/<name>/plugin.json`. Agent Plugins exposes the plugin's directly
+packaged skills; Claude-specific commands, agents, hooks, and dependency
+bundles remain in `.claude-plugin/plugin.json`. Shared name, version,
+description, and author metadata is synchronized across the Claude, Codex,
+and portable manifests.
+
+Run `make sync-agent-plugins` after changing plugin metadata, or
+`make check-agent-plugins` in validation-only workflows.
+
 ### Other Agents
 
 Use the `skills` CLI to select skills:
