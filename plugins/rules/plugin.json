@@ -1,0 +1,9 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "rules",
+  "version": "0.1.0",
+  "description": "Context-specific rules for safe Git operations and rigorous test-failure investigation.",
+  "author": {
+    "name": "stbenjam"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "books",
+  "version": "0.0.1",
+  "description": "Search and analyze a Calibre library or Goodreads export, including reading lists, series, statistics, and recommendations.",
+  "author": {
+    "name": "stbenjam"
+  }
+}

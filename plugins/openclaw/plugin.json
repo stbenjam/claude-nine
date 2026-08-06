@@ -1,0 +1,9 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "openclaw",
+  "version": "0.0.1",
+  "description": "A grab-bag of miscellaneous OpenClaw skills stbenjam uses day to day, with no unifying theme.",
+  "author": {
+    "name": "stbenjam"
+  }
+}

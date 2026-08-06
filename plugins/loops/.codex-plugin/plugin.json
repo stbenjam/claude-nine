@@ -1,7 +1,7 @@
 {
   "name": "loops",
   "version": "0.0.3",
-  "description": "Autonomous workflows that shepherd GitHub pull requests toward a mergeable state.",
+  "description": "Autonomous loops that shepherd work to completion, such as driving a PR to a mergeable state",
   "author": {
     "name": "stbenjam"
   },
